@@ -1,15 +1,25 @@
 const HomePage = require('../pages/HomePage')
 const homePage = new HomePage()
 describe('test', () => {
-    it('logo', () => {
+    xit('logo', () => {
         homePage.goToPage()
         expect(homePage.data.logo.isDisplayed()).toBeTruthy()
     })
 
     it('checkButton', () => {
-        homePage.goToPage()
-        const carInsuranceButton = homePage.selectElement('heroButtons', 'Car Insurance')
-        expect(carInsuranceButton.isPresent()).toBeTruthy()
-        carInsuranceButton.click()
+        homePage
+            .goToPage()
+            .then(() => {
+                return homePage.clickElement('heroButtons', 'Car Insurance')
+            })
+            .then(() => {
+                browser.getCurrentUrl().then(currentUrl => {
+                    if (!currentUrl.includes('questionset')) {
+                        console.log("doesn't containt questionset")
+                    }
+                })
+            })
+
+        expect(browser.getCurrentUrl()).toContain('car-insurance')
     })
 })

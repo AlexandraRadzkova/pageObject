@@ -9,19 +9,5 @@ class HomePage extends Page {
             heroButtons: element.all(By.css('.flex-container-component__body .hero-button')),
         }
     }
-
-    selectElement(allList, string) {
-        return this.data[allList]
-            .filter(el => {
-                return el.getText().then(text => {
-                    console.log(text)
-                    return text
-                        .toLowerCase()
-                        .trim()
-                        .includes(string.toLowerCase())
-                })
-            })
-            .first()
-    }
 }
 module.exports = HomePage
