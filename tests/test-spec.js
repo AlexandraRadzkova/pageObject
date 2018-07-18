@@ -10,7 +10,10 @@ describe('test', () => {
         homePage
             .goToPage()
             .then(() => {
-                return homePage.clickElement('heroButtons', 'Car Insurance')
+                return homePage.selectElementByText('heroButtons', 'Car Insurance')
+            })
+            .then(element => {
+                return homePage.clickElement(element)
             })
             .then(() => {
                 browser.getCurrentUrl().then(currentUrl => {

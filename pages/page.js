@@ -10,41 +10,26 @@ class Page {
         return this.data[name].isDisplayed()
     }
 
-    selectElementByText(listOfElements, string) {
+    selectElementByText(listOfElements, text) {
         return this.data[listOfElements]
             .filter(el => {
-                return el.getText().then(text => {
-                    console.log(text)
-                    return text
+                return el.getText().then(elemText => {
+                    console.log(elemText)
+                    return elemText
                         .toLowerCase()
                         .trim()
-                        .includes(string.toLowerCase())
+                        .includes(text.toLowerCase())
                 })
             })
             .first()
     }
 
-    clickElem(name) {
-        return browser.findElement(name).then(element => element.click())
+    clickElementByLocate(locate) {
+        return browser.findElement(locate).then(element => element.click())
     }
 
-    // clickElement(listOfElements, name) {
-    //     return this.data[listOfElements]
-    //         .filter(el => {
-    //             return el.getText().then(text => {
-    //                 console.log(text)
-    //                 return text
-    //                     .toLowerCase()
-    //                     .trim()
-    //                     .includes(name.toLowerCase())
-    //             })
-    //         })
-    //         .first()
-    //         .click()
-    // }
-
-    clickElement(listOfElements, name) {
-        return this.selectElementByText(listOfElements, name).click()
+    clickElement(element) {
+        return element.click()
     }
 
     fillField(name, value, key = protractor.Key.ENTER) {
