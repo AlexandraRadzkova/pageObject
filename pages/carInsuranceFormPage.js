@@ -29,7 +29,14 @@ class CarInsuranceFormPage extends Page {
             continueButton: element(
                 By.className('btn btn-primary btn-continue btn-continue--alone'),
             ),
+            anyMedicalConditions: element(
+                By.id('policyHolder.hasMedicalConditionsAffectingDrivingfalse'),
+            ),
+            anyOtherCars: element(By.id('policyHolder.drivesAnyOtherCarsfalse')),
         }
+    }
+    selectRadioButton(element) {
+        return this.data[element].sendKeys(protractor.Key.ENTER)
     }
 }
 module.exports = CarInsuranceFormPage

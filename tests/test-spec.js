@@ -58,6 +58,12 @@ describe('test', () => {
                 return carInsuranceFormPage.fillField('currentLicenceField', '1')
             })
             .then(() => {
+                return carInsuranceFormPage.selectRadioButton('anyMedicalConditions')
+            })
+            .then(() => {
+                return carInsuranceFormPage.selectRadioButton('anyOtherCars')
+            })
+            .then(() => {
                 return browser.sleep(3000)
             })
             .then(() => {
