@@ -33,6 +33,15 @@ class CarInsuranceFormPage extends Page {
                 By.id('policyHolder.hasMedicalConditionsAffectingDrivingfalse'),
             ),
             anyOtherCars: element(By.id('policyHolder.drivesAnyOtherCarsfalse')),
+            // hasOffences: element(
+            //     By.xpath(
+            //         "//div[contains(@name, 'policyHolder.offencesExists')]/button[text()='No']",
+            //     ),
+            // ),
+            anyConvictions: element(By.id('policyHolder.hasNonMotoringConvictionsfalse')),
+            hasInsuranceEverBeenDeclared: element(
+                By.id('policyHolder.hasInsuranceEverBeenDeclinedtrue'),
+            ),
         }
     }
     selectRadioButton(element) {

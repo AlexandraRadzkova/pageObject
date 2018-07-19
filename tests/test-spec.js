@@ -64,6 +64,12 @@ describe('test', () => {
                 return carInsuranceFormPage.selectRadioButton('anyOtherCars')
             })
             .then(() => {
+                return carInsuranceFormPage.selectRadioButton('anyConvictions')
+            })
+            .then(() => {
+                return carInsuranceFormPage.selectRadioButton('hasInsuranceEverBeenDeclared')
+            })
+            .then(() => {
                 return browser.sleep(3000)
             })
             .then(() => {
