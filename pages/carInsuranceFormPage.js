@@ -22,8 +22,11 @@ class CarInsuranceFormPage extends Page {
             monthField: element(By.name('policyHolder.dateOfBirth.month')),
             yearField: element(By.name('policyHolder.dateOfBirth.year')),
             kindOfDrivenLicense: element(By.xpath('//label[text()="Medically restricted"]')),
-            currentLicenceField: element(
+            currentLicenceYear: element(
                 By.css('.year-month-selector__year-select .nativedropdown-wrapper__native'),
+            ),
+            currentLicenseMonth: element(
+                By.css('.year-month-selector__month-select .nativedropdown-wrapper__native'),
             ),
             restrictionLast: element(By.xpath('//label[text()="Less than 3 years"]')),
             continueButton: element(
@@ -39,7 +42,7 @@ class CarInsuranceFormPage extends Page {
             //     ),
             // ),
             anyConvictions: element(By.id('policyHolder.hasNonMotoringConvictionsfalse')),
-            hasInsuranceEverBeenDeclared: element(
+            hasInsuranceEverBeenDeclined: element(
                 By.id('policyHolder.hasInsuranceEverBeenDeclinedtrue'),
             ),
         }
