@@ -11,11 +11,5 @@ class CarInsurancePage extends Page {
             ),
         }
     }
-    // clickGetNewQuoteButton() {
-    //     this.getNewQuoteButton.click()
-    // }
-    clickGetNewQuoteButton() {
-        this.data.getNewQuoteButton.click()
-    }
 }
 module.exports = CarInsurancePage

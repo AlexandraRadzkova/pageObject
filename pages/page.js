@@ -29,13 +29,12 @@ class Page {
     }
 
     clickElement(element) {
-        return element.click()
+        return this.data[element].click()
     }
 
-    fillField(name, value, key = protractor.Key.ENTER) {
-        return browser.findElement(name).then(element => element.sendKeys(value))
+    fillField(locate, value, key = protractor.Key.ENTER) {
+        return this.data[locate].sendKeys(value)
     }
-
     wait(timeout) {
         return browser.wait(() => false, timeout).catch(() => {})
     }

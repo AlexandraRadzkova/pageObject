@@ -13,6 +13,11 @@ class CarInsuranceFormPage extends Page {
             insureAddressDropdown: element(
                 By.css('.address-select .nativedropdown-wrapper__native'),
             ),
+            insureAddress: element(
+                By.xpath(
+                    '//option[text()="Insuresupermarket.com Ltd, Moneysupermarket House, St. Davids Park, Ewloe, Deeside, Clwyd, CH53UZ"]',
+                ),
+            ),
             dateField: element(By.name('policyHolder.dateOfBirth.day')),
             monthField: element(By.name('policyHolder.dateOfBirth.month')),
             yearField: element(By.name('policyHolder.dateOfBirth.year')),
@@ -20,17 +25,11 @@ class CarInsuranceFormPage extends Page {
             currentLicenceField: element(
                 By.css('.year-month-selector__year-select .nativedropdown-wrapper__native'),
             ),
+            restrictionLast: element(By.xpath('//label[text()="Less than 3 years"]')),
+            continueButton: element(
+                By.className('btn btn-primary btn-continue btn-continue--alone'),
+            ),
         }
-    }
-
-    fillField(locate, value, key = protractor.Key.ENTER) {
-        return this.data[locate].sendKeys(value)
-    }
-    clickFindAddressButton() {
-        this.data.findAddressButton.click()
-    }
-    clickRadioButton(locate) {
-        this.data[locate].click()
     }
 }
 module.exports = CarInsuranceFormPage

@@ -17,7 +17,7 @@ describe('test', () => {
                 return browser.getCurrentUrl().then(currentUrl => {
                     if (!currentUrl.includes('questionset')) {
                         console.log("doesn't containt questionset")
-                        return carInsurancePage.clickGetNewQuoteButton()
+                        return carInsurancePage.clickElement('getNewQuoteButton')
                     }
                 })
             })
@@ -25,23 +25,19 @@ describe('test', () => {
                 return carInsuranceFormPage.fillField('carRegistrationYear', '1753')
             })
             .then(() => {
-                return carInsuranceFormPage.fillField('houseNumber', '23')
+                return carInsuranceFormPage.fillField('houseNumber', '23', protractor.Key.ENTER)
             })
             .then(() => {
-                return carInsuranceFormPage.fillField('postCode', 'CH5 3UZ')
+                return carInsuranceFormPage.fillField('postCode', 'CH5 3UZ', protractor.Key.ENTER)
             })
             .then(() => {
-                return carInsuranceFormPage.clickFindAddressButton()
+                return carInsuranceFormPage.clickElement('findAddressButton')
             })
             .then(() => {
                 return browser.sleep(1000)
             })
             .then(() => {
-                return carInsuranceFormPage.fillField(
-                    'insureAddressDropdown',
-                    'Online Leads Ltd, Moneysupermarket House, St. Davids Park, Ewloe, Deeside, Clwyd, CH53UZ',
-                    //protractor.Key.ENTER,
-                )
+                return carInsuranceFormPage.clickElement('insureAddress')
             })
             .then(() => {
                 return carInsuranceFormPage.fillField('dateField', '29')
@@ -53,10 +49,20 @@ describe('test', () => {
                 return carInsuranceFormPage.fillField('yearField', '1998')
             })
             .then(() => {
-                return carInsuranceFormPage.clickRadioButton('kindOfDrivenLicense')
+                return carInsuranceFormPage.clickElement('kindOfDrivenLicense')
+            })
+            .then(() => {
+                return carInsuranceFormPage.clickElement('restrictionLast')
+            })
+            .then(() => {
+                return carInsuranceFormPage.fillField('currentLicenceField', '1')
             })
             .then(() => {
                 return browser.sleep(3000)
             })
+            .then(() => {
+                return carInsuranceFormPage.clickElement('continueButton')
+            })
+            .then(() => browser.quit())
     })
 })
