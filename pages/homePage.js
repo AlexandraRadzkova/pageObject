@@ -8,6 +8,11 @@ class HomePage extends Page {
             topNavigationContainer: element.all(By.className('top-navigation-container')),
             heroButtons: element.all(By.css('.flex-container-component__body .hero-button')),
         }
+        this.carInsuranceButton = this.selectElementByText('heroButtons', 'Car Insurance')
+    }
+
+    clickCarInsuranceButton() {
+        this.carInsuranceButton.click()
     }
 }
 module.exports = HomePage
