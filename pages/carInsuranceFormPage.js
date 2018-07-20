@@ -22,30 +22,38 @@ class CarInsuranceFormPage extends Page {
             monthField: element(By.name('policyHolder.dateOfBirth.month')),
             yearField: element(By.name('policyHolder.dateOfBirth.year')),
             kindOfDrivenLicense: element(By.xpath('//label[text()="Medically restricted"]')),
-            currentLicenceField: element(
+            currentLicenceYear: element(
                 By.css('.year-month-selector__year-select .nativedropdown-wrapper__native'),
+            ),
+            currentLicenceMonth: element(
+                By.css('.year-month-selector__month-select .nativedropdown-wrapper__native'),
             ),
             restrictionLast: element(By.xpath('//label[text()="Less than 3 years"]')),
             continueButton: element(
                 By.className('btn btn-primary btn-continue btn-continue--alone'),
             ),
-            anyMedicalConditions: element(
+            anyMedicalConditionsNo: element(
                 By.id('policyHolder.hasMedicalConditionsAffectingDrivingfalse'),
             ),
-            anyOtherCars: element(By.id('policyHolder.drivesAnyOtherCarsfalse')),
-            // hasOffences: element(
-            //     By.xpath(
-            //         "//div[contains(@name, 'policyHolder.offencesExists')]/button[text()='No']",
-            //     ),
-            // ),
-            anyConvictions: element(By.id('policyHolder.hasNonMotoringConvictionsfalse')),
-            hasInsuranceEverBeenDeclared: element(
+            anyOtherCarsNo: element(By.id('policyHolder.drivesAnyOtherCarsfalse')),
+
+            anyConvictionsNo: element(By.id('policyHolder.hasNonMotoringConvictionsfalse')),
+            hasInsuranceEverBeenDeclinedYes: element(
                 By.id('policyHolder.hasInsuranceEverBeenDeclinedtrue'),
             ),
+            yearsOfNoClaimsDiscount: element(
+                By.css('.policyHolder_numberOfYearsNoClaims .nativedropdown-wrapper__native'),
+            ),
+            // startInsuranceDate: element(By.id('policy.policyStartDate_dropdown')),
+            // noRadioButtons: element.all(By.css('.toggle-with-confirm__toggle-button--no')),
         }
+
+        // this.hasOffencesNo = this.data.noRadioButtons[1]
     }
     selectRadioButton(element) {
         return this.data[element].sendKeys(protractor.Key.ENTER)
     }
+
+    //TODO: chooseOptionFromDropdown
 }
 module.exports = CarInsuranceFormPage
