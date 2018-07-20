@@ -7,6 +7,8 @@ class HomePage extends Page {
             logo: element(By.className('page-header__logo-container')),
             topNavigationContainer: element.all(By.className('top-navigation-container')),
             heroButtons: element.all(By.css('.flex-container-component__body .hero-button')),
+            energy: element(By.css('.top-navigation-container>li:nth-child(3)')),
+            solarPowerLink: element(By.xpath("//a[contains(text(),'Solar Power')]")),
         }
         this.carInsuranceButton = this.selectElementByText('heroButtons', 'Car Insurance')
     }

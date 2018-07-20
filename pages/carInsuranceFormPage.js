@@ -44,14 +44,19 @@ class CarInsuranceFormPage extends Page {
             yearsOfNoClaimsDiscount: element(
                 By.css('.policyHolder_numberOfYearsNoClaims .nativedropdown-wrapper__native'),
             ),
-            // startInsuranceDate: element(By.id('policy.policyStartDate_dropdown')),
-            // noRadioButtons: element.all(By.css('.toggle-with-confirm__toggle-button--no')),
+            hasOffencesNo: element(
+                By.css(
+                    '[id="policyHolder.offencesExists"] .toggle-with-confirm__toggle-button--no',
+                ),
+            ),
         }
-
-        // this.hasOffencesNo = this.data.noRadioButtons[1]
     }
     selectRadioButton(element) {
         return this.data[element].sendKeys(protractor.Key.ENTER)
+    }
+
+    selectStartInsuranceDate() {
+        element(by.cssContainingText('option', 'Sunday 29th July')).click()
     }
 
     //TODO: chooseOptionFromDropdown
