@@ -40,7 +40,7 @@ class Page {
     }
 
     isUrlContaintText(substring) {
-        return browser.getCurrentUrl().toContain(substring)
+        return this.getUrl().toContain(substring)
     }
 }
 module.exports = Page

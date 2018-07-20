@@ -1,13 +1,21 @@
 const HomePage = require('../pages/HomePage')
 const CarInsurancePage = require('../pages/carInsurancePage')
 const CarInsuranceFormPage = require('../pages/carInsuranceFormPage')
+const SolarPowerPage = require('../pages/solarPowerPage')
+const GasAndElectricityPage = require('../pages/gasAndElectricityPage')
 
 const homePage = new HomePage()
 const carInsurancePage = new CarInsurancePage()
 const carInsuranceFormPage = new CarInsuranceFormPage()
+const solarPowerPage = new SolarPowerPage()
+const gasAndElectricityPage = new GasAndElectricityPage()
 
 describe('test', () => {
-    it('fill car insurance form', () => {
+    beforeEach(() => {
+        return homePage.goToPage()
+    })
+
+    xit('fill car insurance form', () => {
         return homePage
             .goToPage()
             .then(() => {
@@ -94,10 +102,7 @@ describe('test', () => {
         //.then(() => browser.quit())
     })
 
-    // beforeEach(() => {
-    //     return homePage.goToPage()
-    // })
-    xit('test second', () => {
+    it('test second', () => {
         browser
             .actions()
             .mouseMove(homePage.data['energy'])
@@ -106,5 +111,36 @@ describe('test', () => {
             .perform()
             .then(() => browser.sleep(1000))
             .then(() => expect(browser.getCurrentUrl()).toContain('solar-power'))
+            .then(() => {
+                return solarPowerPage.clickElement('switchAndSaveNowButton')
+            })
+            .then(() => expect(browser.getCurrentUrl()).toContain('enquiry'))
+            .then(() => {
+                return browser.sleep(1000)
+            })
+            .then(() => {
+                return gasAndElectricityPage.clickElement('feedbackButton')
+            })
+            .then(() => {
+                return browser.sleep(3000)
+            })
+        // .then(() => {
+        //     return gasAndElectricityPage.clickElement('specificFeedback')
+        // })
+        // .then(() => {
+        //     return gasAndElectricityPage.clickElement('feedbackButton')
+        // })
+        // .then(() => {
+        //     return gasAndElectricityPage.clickElement('likeRadioButton')
+        // })
+        // .then(() => {
+        //     return gasAndElectricityPage.fillField('feedbackTextField', 'like')
+        // })
+        // .then(() => {
+        //     return gasAndElectricityPage.clickElement('submitButton')
+        // })
+        // .then(() => {
+        //     expect(gasAndElectricityPage.data['successPopup'].isPresent()).toBeTruthy()
+        // })
     })
 })
