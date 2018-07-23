@@ -148,5 +148,6 @@ describe('test', () => {
             .then(() => gasAndElectricityPage.clickElement('submitButton'))
             .then(() => gasAndElectricityPage.wait(3000))
             .then(() => expect(gasAndElectricityPage.isElementVisible('successForm')).toBeTruthy())
+            .then(() => gasAndElectricityPage.switchToDefaultContent())
     })
 })
