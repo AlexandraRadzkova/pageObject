@@ -20,7 +20,7 @@ describe('test', () => {
     afterEach(() => {
         return browser.quit()
     })
-    xit('fill car insurance form', () => {
+    xit('Fill car insurance form and click continue button', () => {
         return homePage
             .goToPage()
             .then(() => {
@@ -103,92 +103,50 @@ describe('test', () => {
                 return carInsuranceFormPage.clickElement('continueButton')
             })
             .then(() => expect(browser.getCurrentUrl()).toContain('aboutthecar'))
-
-        //.then(() => browser.quit())
     })
 
-    it('Calculate savings', () => {
+    xit('Calculate savings', () => {
         return homePage
             .goToPage()
-            .then(() => {
-                return homePage.clickElement('moneyMadeEasyLink')
-            })
+            .then(() => homePage.clickElement('moneyMadeEasyLink'))
             .then(() => expect(moneyMadeEasyPage.getUrl()).toContain('money-made-easy'))
-            .then(() => {
-                return moneyMadeEasyPage.clickToolsAndCalc()
-            })
+            .then(() => moneyMadeEasyPage.clickToolsAndCalc())
             .then(() => expect(resoursesHubPage.getUrl()).toContain('resources'))
-            .then(() => {
-                return resoursesHubPage.clickSavingsCalc()
-            })
+            .then(() => resoursesHubPage.clickSavingsCalc())
             .then(() => expect(savingsCalcPage.getUrl()).toContain('calculator'))
-            .then(() => {
-                return savingsCalcPage.selectRadioButtonBySpace('saveEachMonthRadioButton')
-            })
-            .then(() => {
-                return savingsCalcPage.fillField('amountField', 500)
-            })
-            .then(() => {
-                return savingsCalcPage.fillField('existingSavingsField', 300)
-            })
-            .then(() => {
-                return savingsCalcPage.fillField('grossInterestRateField', 90)
-            })
-            .then(() => {
-                return savingsCalcPage.clickElement('calcMySavingsButton')
-            })
-            .then(() => {
-                return browser.sleep(3000)
-            })
+            .then(() => savingsCalcPage.selectRadioButtonBySpace('saveEachMonthRadioButton'))
+            .then(() => savingsCalcPage.fillField('amountField', 500))
+            .then(() => savingsCalcPage.fillField('existingSavingsField', 300))
+            .then(() => savingsCalcPage.fillField('grossInterestRateField', 90))
+            .then(() => savingsCalcPage.clickElement('calcMySavingsButton'))
+            .then(() => browser.sleep(3000))
             .then(() =>
                 expect(savingsCalcPage.isElementVisible('saveEachMonthResults')).toBeTruthy(),
             )
     })
 
-    xit('test second', () => {
+    it('Leave feedback on Gas and Electricity Page', () => {
         return homePage
             .goToPage()
-            .then(() => {
-                return homePage.mouseMoveToElement('energy')
-            })
-            .then(() => {
-                return homePage.mouseMoveToElement('solarPowerLink')
-            })
-            .then(() => {
-                return homePage.clickElement('solarPowerLink')
-            })
-            .then(() => browser.sleep(1000))
+            .then(() => homePage.mouseMoveToElement('energy'))
+            .then(() => homePage.mouseMoveToElement('solarPowerLink'))
+            .then(() => homePage.clickElement('solarPowerLink'))
+            .then(() => gasAndElectricityPage.wait(1000))
             .then(() => expect(browser.getCurrentUrl()).toContain('solar-power'))
-            .then(() => {
-                return solarPowerPage.clickElement('switchAndSaveNowButton')
-            })
+            .then(() => solarPowerPage.clickElement('switchAndSaveNowButton'))
             .then(() => expect(browser.getCurrentUrl()).toContain('enquiry'))
-            .then(() => {
-                return browser.sleep(1000)
-            })
-            .then(() => {
-                return gasAndElectricityPage.clickElement('feedbackButton')
-            })
-            .then(() => {
-                return browser.sleep(3000)
-            })
-        // .then(() => {
-        //     return gasAndElectricityPage.clickElement('specificFeedback')
-        // })
-        // .then(() => {
-        //     return gasAndElectricityPage.clickElement('feedbackButton')
-        // })
-        // .then(() => {
-        //     return gasAndElectricityPage.clickElement('likeRadioButton')
-        // })
-        // .then(() => {
-        //     return gasAndElectricityPage.fillField('feedbackTextField', 'like')
-        // })
-        // .then(() => {
-        //     return gasAndElectricityPage.clickElement('submitButton')
-        // })
-        // .then(() => {
-        //     expect(gasAndElectricityPage.data['successPopup'].isPresent()).toBeTruthy()
-        // })
+            .then(() => gasAndElectricityPage.wait(1000))
+            .then(() => gasAndElectricityPage.clickElement('feedbackButton'))
+            .then(() => gasAndElectricityPage.wait(3000))
+            .then(() => gasAndElectricityPage.switchToIframe())
+            .then(() => gasAndElectricityPage.clickElement('generalFeedback'))
+            .then(() => gasAndElectricityPage.wait(3000))
+            .then(() => gasAndElectricityPage.switchToDefaultContent())
+            .then(() => gasAndElectricityPage.switchToIframe())
+            .then(() => gasAndElectricityPage.clickElement('likeRadioButton'))
+            .then(() => gasAndElectricityPage.fillField('feedbackTextField', 'LIKE'))
+            .then(() => gasAndElectricityPage.clickElement('submitButton'))
+            .then(() => gasAndElectricityPage.wait(3000))
+            .then(() => expect(gasAndElectricityPage.isElementVisible('successForm')).toBeTruthy())
     })
 })

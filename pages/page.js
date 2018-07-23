@@ -24,10 +24,6 @@ class Page {
             .first()
     }
 
-    clickElementByLocate(locate) {
-        return browser.findElement(locate).then(element => element.click())
-    }
-
     clickElement(element) {
         return this.data[element].click()
     }

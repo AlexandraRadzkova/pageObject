@@ -51,9 +51,6 @@ class CarInsuranceFormPage extends Page {
             ),
         }
     }
-    selectRadioButton(element) {
-        return this.data[element].sendKeys(protractor.Key.ENTER)
-    }
 
     selectStartInsuranceDate() {
         element(by.cssContainingText('option', 'Sunday 29th July')).click()
