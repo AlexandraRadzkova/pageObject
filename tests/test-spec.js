@@ -17,6 +17,9 @@ const resoursesHubPage = new ResoursesHubPage()
 const savingsCalcPage = new SavingsCalcPage()
 
 describe('test', () => {
+    afterEach(() => {
+        return browser.quit()
+    })
     xit('fill car insurance form', () => {
         return homePage
             .goToPage()
@@ -110,29 +113,36 @@ describe('test', () => {
             .then(() => {
                 return homePage.clickElement('moneyMadeEasyLink')
             })
-            .then(() => {
-                return browser.sleep(1000)
-            })
-            .then(() => expect(browser.getCurrentUrl()).toContain('money-made-easy'))
+            .then(() => expect(moneyMadeEasyPage.getUrl()).toContain('money-made-easy'))
             .then(() => {
                 return moneyMadeEasyPage.clickToolsAndCalc()
             })
+            .then(() => expect(resoursesHubPage.getUrl()).toContain('resources'))
             .then(() => {
                 return resoursesHubPage.clickSavingsCalc()
             })
-            .then(() => expect(browser.getCurrentUrl()).toContain('calculator'))
+            .then(() => expect(savingsCalcPage.getUrl()).toContain('calculator'))
+            .then(() => {
+                return savingsCalcPage.selectRadioButtonBySpace('saveEachMonthRadioButton')
+            })
+            .then(() => {
+                return savingsCalcPage.fillField('amountField', 500)
+            })
+            .then(() => {
+                return savingsCalcPage.fillField('existingSavingsField', 300)
+            })
+            .then(() => {
+                return savingsCalcPage.fillField('grossInterestRateField', 90)
+            })
+            .then(() => {
+                return savingsCalcPage.clickElement('calcMySavingsButton')
+            })
             .then(() => {
                 return browser.sleep(3000)
             })
-            .then(() => {
-                return savingsCalcPage.selectRadioButtonBySpace('certAmountRadioButton')
-            })
-            .then(() => {
-                return browser.sleep(3000)
-            })
-            .then(() => {
-                savingsCalcPage.fillField('amountField', 500)
-            })
+            .then(() =>
+                expect(savingsCalcPage.isElementVisible('saveEachMonthResults')).toBeTruthy(),
+            )
     })
 
     xit('test second', () => {
