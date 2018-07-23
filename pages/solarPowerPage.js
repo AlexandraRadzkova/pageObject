@@ -8,7 +8,6 @@ class SolarPowerPage extends Page {
             switchAndSaveNowButton: element(
                 By.xpath("//div[contains(@class, 'cta-banner')]/a[text()=' Switch & save now ']"),
             ),
-            // element(By.xpath("//a[text()=' Switch & save now ']")),
         }
     }
 }

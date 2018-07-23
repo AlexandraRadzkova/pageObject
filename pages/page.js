@@ -35,12 +35,16 @@ class Page {
     fillField(locate, value, key = protractor.Key.ENTER) {
         return this.data[locate].sendKeys(value)
     }
-    wait(timeout) {
-        return browser.wait(() => false, timeout).catch(() => {})
+
+    mouseMoveToElement(element) {
+        return browser
+            .actions()
+            .mouseMove(this.data[element])
+            .perform()
     }
 
-    isUrlContaintText(substring) {
-        return this.getUrl().toContain(substring)
+    wait(timeout) {
+        return browser.wait(() => false, timeout).catch(() => {})
     }
 }
 module.exports = Page

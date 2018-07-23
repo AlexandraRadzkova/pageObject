@@ -11,10 +11,6 @@ const solarPowerPage = new SolarPowerPage()
 const gasAndElectricityPage = new GasAndElectricityPage()
 
 describe('test', () => {
-    beforeEach(() => {
-        return homePage.goToPage()
-    })
-
     xit('fill car insurance form', () => {
         return homePage
             .goToPage()
@@ -103,12 +99,17 @@ describe('test', () => {
     })
 
     it('test second', () => {
-        browser
-            .actions()
-            .mouseMove(homePage.data['energy'])
-            .mouseMove(homePage.data['solarPowerLink'])
-            .click()
-            .perform()
+        return homePage
+            .goToPage()
+            .then(() => {
+                return homePage.mouseMoveToElement('energy')
+            })
+            .then(() => {
+                return homePage.mouseMoveToElement('solarPowerLink')
+            })
+            .then(() => {
+                return homePage.clickElement('solarPowerLink')
+            })
             .then(() => browser.sleep(1000))
             .then(() => expect(browser.getCurrentUrl()).toContain('solar-power'))
             .then(() => {
