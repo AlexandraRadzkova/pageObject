@@ -43,6 +43,14 @@ class Page {
             .perform()
     }
 
+    selectRadioButton(element) {
+        return this.data[element].sendKeys(protractor.Key.ENTER)
+    }
+
+    selectRadioButtonBySpace(element) {
+        return this.data[element].sendKeys(protractor.Key.SPACE)
+    }
+
     wait(timeout) {
         return browser.wait(() => false, timeout).catch(() => {})
     }

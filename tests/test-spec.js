@@ -3,12 +3,18 @@ const CarInsurancePage = require('../pages/carInsurancePage')
 const CarInsuranceFormPage = require('../pages/carInsuranceFormPage')
 const SolarPowerPage = require('../pages/solarPowerPage')
 const GasAndElectricityPage = require('../pages/gasAndElectricityPage')
+const MoneyMadeEasyPage = require('../pages/moneyMadeEasyPage')
+const ResoursesHubPage = require('../pages/resoursesHubPage')
+const SavingsCalcPage = require('../pages/savingsCalcPage')
 
 const homePage = new HomePage()
 const carInsurancePage = new CarInsurancePage()
 const carInsuranceFormPage = new CarInsuranceFormPage()
 const solarPowerPage = new SolarPowerPage()
 const gasAndElectricityPage = new GasAndElectricityPage()
+const moneyMadeEasyPage = new MoneyMadeEasyPage()
+const resoursesHubPage = new ResoursesHubPage()
+const savingsCalcPage = new SavingsCalcPage()
 
 describe('test', () => {
     xit('fill car insurance form', () => {
@@ -98,7 +104,38 @@ describe('test', () => {
         //.then(() => browser.quit())
     })
 
-    it('test second', () => {
+    it('Calculate savings', () => {
+        return homePage
+            .goToPage()
+            .then(() => {
+                return homePage.clickElement('moneyMadeEasyLink')
+            })
+            .then(() => {
+                return browser.sleep(1000)
+            })
+            .then(() => expect(browser.getCurrentUrl()).toContain('money-made-easy'))
+            .then(() => {
+                return moneyMadeEasyPage.clickToolsAndCalc()
+            })
+            .then(() => {
+                return resoursesHubPage.clickSavingsCalc()
+            })
+            .then(() => expect(browser.getCurrentUrl()).toContain('calculator'))
+            .then(() => {
+                return browser.sleep(3000)
+            })
+            .then(() => {
+                return savingsCalcPage.selectRadioButtonBySpace('certAmountRadioButton')
+            })
+            .then(() => {
+                return browser.sleep(3000)
+            })
+            .then(() => {
+                savingsCalcPage.fillField('amountField', 500)
+            })
+    })
+
+    xit('test second', () => {
         return homePage
             .goToPage()
             .then(() => {
