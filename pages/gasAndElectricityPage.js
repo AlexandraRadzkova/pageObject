@@ -7,6 +7,9 @@ class GasAndElectricityPage extends Page {
             feedbackButton: element(By.className('usabilla_live_button_container')),
             iframeRoot: element(By.css("[title = 'Usabilla Feedback Form Frame']")),
             generalFeedback: element(By.xpath("//div[contains(@class, 'choice choice_general')]")),
+            specificFeedback: element(
+                By.xpath("//div[contains(@class, 'choice choice_specific')]"),
+            ),
             likeRadioButton: element(By.css('.rating_4')),
             feedbackTextField: element(By.name('feedback')),
             submitButton: element(By.className('submit')),
