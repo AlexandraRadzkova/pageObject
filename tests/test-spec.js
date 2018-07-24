@@ -17,15 +17,10 @@ const resoursesHubPage = new ResoursesHubPage()
 const savingsCalcPage = new SavingsCalcPage()
 
 describe('test', () => {
-    afterEach(() => {
-        return browser.quit()
-    })
-    xit('Fill car insurance form and click continue button', () => {
+    it('Fill car insurance form and click continue button', () => {
         return homePage
             .goToPage()
-            .then(() => {
-                return homePage.clickCarInsuranceButton()
-            })
+            .then(() => homePage.clickCarInsuranceButton())
             .then(() => {
                 return browser.getCurrentUrl().then(currentUrl => {
                     if (!currentUrl.includes('questionset')) {
@@ -34,78 +29,34 @@ describe('test', () => {
                     }
                 })
             })
-            .then(() => {
-                return carInsuranceFormPage.fillField('carRegistrationYear', '1753')
-            })
-            .then(() => {
-                return carInsuranceFormPage.fillField('houseNumber', '23')
-            })
-            .then(() => {
-                return carInsuranceFormPage.fillField('postCode', 'CH5 3UZ')
-            })
-            .then(() => {
-                return carInsuranceFormPage.clickElement('findAddressButton')
-            })
-            .then(() => {
-                return browser.sleep(1000)
-            })
-            .then(() => {
-                return carInsuranceFormPage.clickElement('insureAddress')
-            })
-            .then(() => {
-                return carInsuranceFormPage.fillField('dateField', '29')
-            })
-            .then(() => {
-                return carInsuranceFormPage.fillField('monthField', '05')
-            })
-            .then(() => {
-                return carInsuranceFormPage.fillField('yearField', '1998')
-            })
-            .then(() => {
-                return carInsuranceFormPage.clickElement('kindOfDrivenLicense')
-            })
-            .then(() => {
-                return carInsuranceFormPage.clickElement('restrictionLast')
-            })
-            .then(() => {
-                return carInsuranceFormPage.fillField('currentLicenceYear', '1')
-            })
+            .then(() => carInsuranceFormPage.fillField('carRegistrationYear', '1753'))
+            .then(() => carInsuranceFormPage.fillField('houseNumber', '23'))
+            .then(() => carInsuranceFormPage.fillField('postCode', 'CH5 3UZ'))
+            .then(() => carInsuranceFormPage.clickElement('findAddressButton'))
             .then(() => browser.sleep(1000))
-            .then(() => {
-                return carInsuranceFormPage.fillField('currentLicenceMonth', '2')
-            })
-            .then(() => {
-                return carInsuranceFormPage.selectRadioButton('anyMedicalConditionsNo')
-            })
-            .then(() => {
-                return carInsuranceFormPage.selectRadioButton('anyOtherCarsNo')
-            })
+            .then(() => carInsuranceFormPage.clickElement('insureAddress'))
+            .then(() => carInsuranceFormPage.fillField('dateField', '29'))
+            .then(() => carInsuranceFormPage.fillField('monthField', '05'))
+            .then(() => carInsuranceFormPage.fillField('yearField', '1998'))
+            .then(() => carInsuranceFormPage.clickElement('kindOfDrivenLicense'))
+            .then(() => carInsuranceFormPage.clickElement('restrictionLast'))
+            .then(() => carInsuranceFormPage.fillField('currentLicenceYear', '1'))
             .then(() => browser.sleep(1000))
-            .then(() => {
-                return carInsuranceFormPage.selectRadioButton('hasOffencesNo')
-            })
-            .then(() => {
-                return carInsuranceFormPage.selectRadioButton('anyConvictionsNo')
-            })
-            .then(() => {
-                return carInsuranceFormPage.selectRadioButton('hasInsuranceEverBeenDeclinedYes')
-            })
-            .then(() => {
-                return carInsuranceFormPage.fillField('yearsOfNoClaimsDiscount', 1)
-            })
-            .then(() => {
-                return carInsuranceFormPage.selectStartInsuranceDate()
-            })
-            .then(() => {
-                return browser.sleep(3000)
-            })
-            .then(() => {
-                return carInsuranceFormPage.clickElement('continueButton')
-            })
+            .then(() => carInsuranceFormPage.fillField('currentLicenceMonth', '2'))
+            .then(() => carInsuranceFormPage.selectRadioButton('anyMedicalConditionsNo'))
+            .then(() => carInsuranceFormPage.selectRadioButton('anyOtherCarsNo'))
+            .then(() => browser.sleep(1000))
+            .then(() => carInsuranceFormPage.selectRadioButton('hasOffencesNo'))
+            .then(() => carInsuranceFormPage.selectRadioButton('anyConvictionsNo'))
+            .then(() => carInsuranceFormPage.selectRadioButton('hasInsuranceEverBeenDeclinedYes'))
+            .then(() => carInsuranceFormPage.fillField('yearsOfNoClaimsDiscount', 1))
+            .then(() => carInsuranceFormPage.selectStartInsuranceDate())
+            .then(() => browser.sleep(3000))
+            .then(() => carInsuranceFormPage.clickElement('continueButton'))
             .then(() => expect(browser.getCurrentUrl()).toContain('aboutthecar'))
     })
 
-    xit('Calculate savings', () => {
+    it('Calculate savings', () => {
         return homePage
             .goToPage()
             .then(() => homePage.clickElement('moneyMadeEasyLink'))
