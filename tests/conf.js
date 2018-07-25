@@ -7,7 +7,7 @@ exports.config = {
     },
     specs: ['test-spec.js'],
     onPrepare: function() {
-        browser.driver
+        return browser.driver
             .manage()
             .window()
             .setSize(1920, 1080)
