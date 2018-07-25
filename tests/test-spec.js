@@ -62,27 +62,23 @@ describe('test', () => {
     })
 
     it('Calculate savings', () => {
-        return (
-            homePage
-                .goToPage()
-                .then(() => homePage.clickElement('moneyMadeEasyLink'))
-                .then(() => expect(moneyMadeEasyPage.getUrl()).toContain('money-made-easy'))
-                .then(() => moneyMadeEasyPage.clickElement(moneyMadeEasyPage.toolsAndCalc))
-                // .then(() => moneyMadeEasyPage.clickToolsAndCalc())
-                .then(() => expect(resoursesHubPage.getUrl()).toContain('resources'))
-                // .then(() => resoursesHubPage.clickSavingsCalc())
-                .then(() => resoursesHubPage.clickElement(resoursesHubPage.savingsCalc))
-                .then(() => expect(savingsCalcPage.getUrl()).toContain('calculator'))
-                .then(() => savingsCalcPage.selectRadioButtonBySpace('saveEachMonthRadioButton'))
-                .then(() => savingsCalcPage.fillField('amountField', 500))
-                .then(() => savingsCalcPage.fillField('existingSavingsField', 300))
-                .then(() => savingsCalcPage.fillField('grossInterestRateField', 90))
-                .then(() => savingsCalcPage.clickElement('calcMySavingsButton'))
-                .then(() => savingsCalcPage.wait(3000))
-                .then(() =>
-                    expect(savingsCalcPage.isElementVisible('saveEachMonthResults')).toBeTruthy(),
-                )
-        )
+        return homePage
+            .goToPage()
+            .then(() => homePage.clickElement('moneyMadeEasyLink'))
+            .then(() => expect(moneyMadeEasyPage.getUrl()).toContain('money-made-easy'))
+            .then(() => moneyMadeEasyPage.clickElement(moneyMadeEasyPage.toolsAndCalc))
+            .then(() => expect(resoursesHubPage.getUrl()).toContain('resources'))
+            .then(() => resoursesHubPage.clickElement(resoursesHubPage.savingsCalc))
+            .then(() => expect(savingsCalcPage.getUrl()).toContain('calculator'))
+            .then(() => savingsCalcPage.selectRadioButtonBySpace('saveEachMonthRadioButton'))
+            .then(() => savingsCalcPage.fillField('amountField', 500))
+            .then(() => savingsCalcPage.fillField('existingSavingsField', 300))
+            .then(() => savingsCalcPage.fillField('grossInterestRateField', 90))
+            .then(() => savingsCalcPage.clickElement('calcMySavingsButton'))
+            .then(() => savingsCalcPage.wait(3000))
+            .then(() =>
+                expect(savingsCalcPage.isElementVisible('saveEachMonthResults')).toBeTruthy(),
+            )
     })
 
     xit('Leave feedback on Gas and Electricity Page', () => {
