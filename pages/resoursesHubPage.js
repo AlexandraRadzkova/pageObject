@@ -8,8 +8,5 @@ class ResoursesHubPage extends Page {
         }
         this.savingsCalc = this.selectElementByText('mainArticles', 'Savings calculator')
     }
-    clickSavingsCalc() {
-        return this.savingsCalc.click()
-    }
 }
 module.exports = ResoursesHubPage

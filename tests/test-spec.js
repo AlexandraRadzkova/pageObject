@@ -17,10 +17,10 @@ const resoursesHubPage = new ResoursesHubPage()
 const savingsCalcPage = new SavingsCalcPage()
 
 describe('test', () => {
-    it('Fill car insurance form and click continue button', () => {
+    xit('Fill car insurance form and click continue button', () => {
         return homePage
             .goToPage()
-            .then(() => homePage.clickCarInsuranceButton())
+            .then(() => homePage.clickElement(homePage.carInsuranceButton))
             .then(() => {
                 return browser.getCurrentUrl().then(currentUrl => {
                     if (!currentUrl.includes('questionset')) {
@@ -34,7 +34,12 @@ describe('test', () => {
             .then(() => carInsuranceFormPage.fillField('postCode', 'CH5 3UZ'))
             .then(() => carInsuranceFormPage.clickElement('findAddressButton'))
             .then(() => carInsuranceFormPage.wait(1000))
-            .then(() => carInsuranceFormPage.clickElement('insureAddress'))
+            .then(() =>
+                carInsuranceFormPage.selectDropdownValueByText(
+                    'insureAddressDropdown',
+                    'Insuresupermarket.com Ltd, Moneysupermarket House, St. Davids Park, Ewloe, Deeside, Clwyd, CH53UZ',
+                ),
+            )
             .then(() => carInsuranceFormPage.fillField('dateField', '29'))
             .then(() => carInsuranceFormPage.fillField('monthField', '05'))
             .then(() => carInsuranceFormPage.fillField('yearField', '1998'))
@@ -49,33 +54,38 @@ describe('test', () => {
             .then(() => carInsuranceFormPage.selectRadioButton('anyConvictionsNo'))
             .then(() => carInsuranceFormPage.selectRadioButton('hasInsuranceEverBeenDeclinedYes'))
             .then(() => carInsuranceFormPage.fillField('yearsOfNoClaimsDiscount', 1))
-            .then(() => carInsuranceFormPage.selectStartInsuranceDate())
+            .then(() => carInsuranceFormPage.selectStartInsuranceDate('Sunday 29th July'))
             .then(() => carInsuranceFormPage.wait(1000))
             .then(() => carInsuranceFormPage.clickElement('continueButton'))
+            .then(() => carInsuranceFormPage.wait(2000))
             .then(() => expect(browser.getCurrentUrl()).toContain('aboutthecar'))
     })
 
     it('Calculate savings', () => {
-        return homePage
-            .goToPage()
-            .then(() => homePage.clickElement('moneyMadeEasyLink'))
-            .then(() => expect(moneyMadeEasyPage.getUrl()).toContain('money-made-easy'))
-            .then(() => moneyMadeEasyPage.clickToolsAndCalc())
-            .then(() => expect(resoursesHubPage.getUrl()).toContain('resources'))
-            .then(() => resoursesHubPage.clickSavingsCalc())
-            .then(() => expect(savingsCalcPage.getUrl()).toContain('calculator'))
-            .then(() => savingsCalcPage.selectRadioButtonBySpace('saveEachMonthRadioButton'))
-            .then(() => savingsCalcPage.fillField('amountField', 500))
-            .then(() => savingsCalcPage.fillField('existingSavingsField', 300))
-            .then(() => savingsCalcPage.fillField('grossInterestRateField', 90))
-            .then(() => savingsCalcPage.clickElement('calcMySavingsButton'))
-            .then(() => savingsCalcPage.wait(3000))
-            .then(() =>
-                expect(savingsCalcPage.isElementVisible('saveEachMonthResults')).toBeTruthy(),
-            )
+        return (
+            homePage
+                .goToPage()
+                .then(() => homePage.clickElement('moneyMadeEasyLink'))
+                .then(() => expect(moneyMadeEasyPage.getUrl()).toContain('money-made-easy'))
+                .then(() => moneyMadeEasyPage.clickElement(moneyMadeEasyPage.toolsAndCalc))
+                // .then(() => moneyMadeEasyPage.clickToolsAndCalc())
+                .then(() => expect(resoursesHubPage.getUrl()).toContain('resources'))
+                // .then(() => resoursesHubPage.clickSavingsCalc())
+                .then(() => resoursesHubPage.clickElement(resoursesHubPage.savingsCalc))
+                .then(() => expect(savingsCalcPage.getUrl()).toContain('calculator'))
+                .then(() => savingsCalcPage.selectRadioButtonBySpace('saveEachMonthRadioButton'))
+                .then(() => savingsCalcPage.fillField('amountField', 500))
+                .then(() => savingsCalcPage.fillField('existingSavingsField', 300))
+                .then(() => savingsCalcPage.fillField('grossInterestRateField', 90))
+                .then(() => savingsCalcPage.clickElement('calcMySavingsButton'))
+                .then(() => savingsCalcPage.wait(3000))
+                .then(() =>
+                    expect(savingsCalcPage.isElementVisible('saveEachMonthResults')).toBeTruthy(),
+                )
+        )
     })
 
-    it('Leave feedback on Gas and Electricity Page', () => {
+    xit('Leave feedback on Gas and Electricity Page', () => {
         return homePage
             .goToPage()
             .then(() => homePage.mouseMoveToElement('energy'))

@@ -25,10 +25,12 @@ class Page {
     }
 
     clickElement(element) {
-        return this.data[element].click()
+        if (typeof element === 'string') {
+            return this.data[element].click()
+        } else return element.click()
     }
 
-    fillField(locate, value, key = protractor.Key.ENTER) {
+    fillField(locate, value) {
         return this.data[locate].sendKeys(value)
     }
 
@@ -45,6 +47,13 @@ class Page {
 
     selectRadioButtonBySpace(element) {
         return this.data[element].sendKeys(protractor.Key.SPACE)
+    }
+
+    selectDropdownValueByText(dropdown, text) {
+        return this.data[dropdown]
+            .click()
+            .then(() => element(By.cssContainingText('option', text)))
+            .then(opt => opt.sendKeys.ENTER)
     }
 
     wait(timeout) {

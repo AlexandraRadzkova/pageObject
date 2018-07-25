@@ -13,11 +13,6 @@ class CarInsuranceFormPage extends Page {
             insureAddressDropdown: element(
                 By.css('.address-select .nativedropdown-wrapper__native'),
             ),
-            insureAddress: element(
-                By.xpath(
-                    '//option[text()="Insuresupermarket.com Ltd, Moneysupermarket House, St. Davids Park, Ewloe, Deeside, Clwyd, CH53UZ"]',
-                ),
-            ),
             dateField: element(By.name('policyHolder.dateOfBirth.day')),
             monthField: element(By.name('policyHolder.dateOfBirth.month')),
             yearField: element(By.name('policyHolder.dateOfBirth.year')),
@@ -36,7 +31,6 @@ class CarInsuranceFormPage extends Page {
                 By.id('policyHolder.hasMedicalConditionsAffectingDrivingfalse'),
             ),
             anyOtherCarsNo: element(By.id('policyHolder.drivesAnyOtherCarsfalse')),
-
             anyConvictionsNo: element(By.id('policyHolder.hasNonMotoringConvictionsfalse')),
             hasInsuranceEverBeenDeclinedYes: element(
                 By.id('policyHolder.hasInsuranceEverBeenDeclinedtrue'),
@@ -52,10 +46,8 @@ class CarInsuranceFormPage extends Page {
         }
     }
 
-    selectStartInsuranceDate() {
-        element(by.cssContainingText('option', 'Sunday 29th July')).click()
+    selectStartInsuranceDate(date) {
+        element(by.cssContainingText('option', date)).click()
     }
-
-    //TODO: chooseOptionFromDropdown
 }
 module.exports = CarInsuranceFormPage

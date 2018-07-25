@@ -13,9 +13,5 @@ class HomePage extends Page {
         }
         this.carInsuranceButton = this.selectElementByText('heroButtons', 'Car Insurance')
     }
-
-    clickCarInsuranceButton() {
-        this.carInsuranceButton.click()
-    }
 }
 module.exports = HomePage
