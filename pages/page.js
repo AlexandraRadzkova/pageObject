@@ -49,11 +49,8 @@ class Page {
         return this.data[element].sendKeys(protractor.Key.SPACE)
     }
 
-    selectDropdownValueByText(dropdown, text) {
-        return this.data[dropdown]
-            .click()
-            .then(() => element(By.cssContainingText('option', text)))
-            .then(opt => opt.sendKeys.ENTER)
+    selectValueInCurrentDropdown(dropdown, value) {
+        this.data[dropdown].element(by.cssContainingText('option', value)).click()
     }
 
     wait(timeout) {

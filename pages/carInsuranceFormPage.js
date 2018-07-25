@@ -43,11 +43,8 @@ class CarInsuranceFormPage extends Page {
                     '[id="policyHolder.offencesExists"] .toggle-with-confirm__toggle-button--no',
                 ),
             ),
+            startInsuranceDate: element(By.css('[id="policy.policyStartDate_dropdown"]')),
         }
-    }
-
-    selectStartInsuranceDate(date) {
-        element(by.cssContainingText('option', date)).click()
     }
 }
 module.exports = CarInsuranceFormPage
