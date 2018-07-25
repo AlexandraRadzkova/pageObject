@@ -17,7 +17,7 @@ const resoursesHubPage = new ResoursesHubPage()
 const savingsCalcPage = new SavingsCalcPage()
 
 describe('test', () => {
-    it('Fill car insurance form and click continue button', () => {
+    fit('Fill car insurance form and click continue button', () => {
         return homePage
             .goToPage()
             .then(() => homePage.clickElement(homePage.carInsuranceButton))
@@ -35,7 +35,7 @@ describe('test', () => {
             .then(() => carInsuranceFormPage.clickElement('findAddressButton'))
             .then(() => carInsuranceFormPage.wait(1000))
             .then(() =>
-                carInsuranceFormPage.selectValueInCurrentDropdown(
+                carInsuranceFormPage.selectDropdownValueByPartialText(
                     'insureAddressDropdown',
                     'Insuresupermarket.com',
                 ),
@@ -45,23 +45,19 @@ describe('test', () => {
             .then(() => carInsuranceFormPage.fillField('yearField', '1998'))
             .then(() => carInsuranceFormPage.selectRadioButton('kindOfDrivenLicense'))
             .then(() => carInsuranceFormPage.selectRadioButton('restrictionLast'))
-            .then(() =>
-                carInsuranceFormPage.selectValueInCurrentDropdown('currentLicenceYear', '1'),
-            )
+            .then(() => carInsuranceFormPage.selectDropdownValueByText('currentLicenceYear', '1'))
             .then(() => carInsuranceFormPage.wait(1000))
-            .then(() =>
-                carInsuranceFormPage.selectValueInCurrentDropdown('currentLicenceMonth', '5'),
-            )
+            .then(() => carInsuranceFormPage.selectDropdownValueByText('currentLicenceMonth', '5'))
             .then(() => carInsuranceFormPage.selectRadioButton('anyMedicalConditionsNo'))
             .then(() => carInsuranceFormPage.selectRadioButton('anyOtherCarsNo'))
             .then(() => carInsuranceFormPage.selectRadioButton('hasOffencesNo'))
             .then(() => carInsuranceFormPage.selectRadioButton('anyConvictionsNo'))
             .then(() => carInsuranceFormPage.selectRadioButton('hasInsuranceEverBeenDeclinedYes'))
             .then(() =>
-                carInsuranceFormPage.selectValueInCurrentDropdown('yearsOfNoClaimsDiscount', '1'),
+                carInsuranceFormPage.selectDropdownValueByText('yearsOfNoClaimsDiscount', '1'),
             )
             .then(() =>
-                carInsuranceFormPage.selectValueInCurrentDropdown(
+                carInsuranceFormPage.selectDropdownValueByPartialText(
                     'startInsuranceDate',
                     'Sunday 29th July',
                 ),

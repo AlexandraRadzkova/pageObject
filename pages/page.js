@@ -49,7 +49,11 @@ class Page {
         return this.data[element].sendKeys(protractor.Key.SPACE)
     }
 
-    selectValueInCurrentDropdown(dropdown, value) {
+    selectDropdownValueByText(dropdown, text) {
+        return this.data[dropdown].element(by.xpath('option[.="' + text + '"]')).click()
+    }
+
+    selectDropdownValueByPartialText(dropdown, value) {
         return this.data[dropdown].element(by.cssContainingText('option', value)).click()
     }
 
