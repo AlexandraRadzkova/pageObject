@@ -50,7 +50,7 @@ class Page {
     }
 
     selectValueInCurrentDropdown(dropdown, value) {
-        this.data[dropdown].element(by.cssContainingText('option', value)).click()
+        return this.data[dropdown].element(by.cssContainingText('option', value)).click()
     }
 
     wait(timeout) {
