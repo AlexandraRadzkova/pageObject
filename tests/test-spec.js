@@ -57,7 +57,9 @@ describe('test', () => {
             .then(() => carInsuranceFormPage.selectRadioButton('hasOffencesNo'))
             .then(() => carInsuranceFormPage.selectRadioButton('anyConvictionsNo'))
             .then(() => carInsuranceFormPage.selectRadioButton('hasInsuranceEverBeenDeclinedYes'))
-            .then(() => carInsuranceFormPage.fillField('yearsOfNoClaimsDiscount', 1))
+            .then(() =>
+                carInsuranceFormPage.selectValueInCurrentDropdown('yearsOfNoClaimsDiscount', '1'),
+            )
             .then(() =>
                 carInsuranceFormPage.selectValueInCurrentDropdown(
                     'startInsuranceDate',
