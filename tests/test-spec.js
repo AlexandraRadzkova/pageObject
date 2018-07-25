@@ -70,7 +70,7 @@ describe('test', () => {
             .then(() => expect(browser.getCurrentUrl()).toContain('aboutthecar'))
     })
 
-    xit('Calculate savings', () => {
+    it('Calculate savings', () => {
         return homePage
             .goToPage()
             .then(() => homePage.clickElement('moneyMadeEasyLink'))
@@ -90,7 +90,7 @@ describe('test', () => {
             )
     })
 
-    xit('Leave feedback on Gas and Electricity Page', () => {
+    it('Leave feedback on Gas and Electricity Page', () => {
         return homePage
             .goToPage()
             .then(() => homePage.mouseMoveToElement('energy'))
@@ -105,7 +105,7 @@ describe('test', () => {
             .then(() => gasAndElectricityPage.wait(3000))
             .then(() => gasAndElectricityPage.switchToIframe())
             .then(() => gasAndElectricityPage.clickElement('generalFeedback'))
-            .then(() => gasAndElectricityPage.wait(3000))
+            .then(() => gasAndElectricityPage.wait(1500))
             .then(() => gasAndElectricityPage.switchToDefaultContent())
             .then(() => gasAndElectricityPage.switchToIframe())
             .then(() => gasAndElectricityPage.clickElement('likeRadioButton'))
