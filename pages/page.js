@@ -41,7 +41,7 @@ class Page {
             .perform()
     }
 
-    selectRadioButton(element) {
+    selectRadioButtonByEnter(element) {
         return this.data[element].sendKeys(protractor.Key.ENTER)
     }
 

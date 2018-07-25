@@ -24,8 +24,10 @@ describe('test', () => {
     const isCurrentLicenceMonthVisible = EC.visibilityOf(
         carInsuranceFormPage.data['currentLicenceMonth'],
     )
+    const isFeedbackButtonVisible = EC.visibilityOf(gasAndElectricityPage.data['feedbackButton'])
+    const isIframeVisible = EC.visibilityOf(gasAndElectricityPage.data['iframeRoot'])
 
-    fit('Fill car insurance form and click continue button', () => {
+    it('Fill car insurance form and click continue button', () => {
         return homePage
             .goToPage()
             .then(() => homePage.clickElement(homePage.carInsuranceButton))
@@ -71,7 +73,6 @@ describe('test', () => {
                 ),
             )
             .then(() => carInsuranceFormPage.clickElement('continueButton'))
-            .then(() => browser.wait(EC.urlContains('aboutthecar'), 5000))
             .then(() => expect(browser.getCurrentUrl()).toContain('aboutthecar'))
     })
 
@@ -89,7 +90,6 @@ describe('test', () => {
             .then(() => savingsCalcPage.fillField('existingSavingsField', 300))
             .then(() => savingsCalcPage.fillField('grossInterestRateField', 90))
             .then(() => savingsCalcPage.clickElement('calcMySavingsButton'))
-            .then(() => savingsCalcPage.wait(3000))
             .then(() =>
                 expect(savingsCalcPage.isElementVisible('saveEachMonthResults')).toBeTruthy(),
             )
@@ -101,22 +101,17 @@ describe('test', () => {
             .then(() => homePage.mouseMoveToElement('energy'))
             .then(() => homePage.mouseMoveToElement('solarPowerLink'))
             .then(() => homePage.clickElement('solarPowerLink'))
-            .then(() => solarPowerPage.wait(1000))
-            .then(() => expect(solarPowerPage.getUrl()).toContain('solar-power'))
             .then(() => solarPowerPage.clickElement('switchAndSaveNowButton'))
-            .then(() => expect(gasAndElectricityPage.getUrl()).toContain('enquiry'))
-            .then(() => gasAndElectricityPage.wait(1000))
+            .then(() => browser.wait(isFeedbackButtonVisible, 5000))
             .then(() => gasAndElectricityPage.clickElement('feedbackButton'))
-            .then(() => gasAndElectricityPage.wait(3000))
+            .then(() => browser.wait(isIframeVisible, 5000))
             .then(() => gasAndElectricityPage.switchToIframe())
             .then(() => gasAndElectricityPage.clickElement('generalFeedback'))
-            .then(() => gasAndElectricityPage.wait(1500))
             .then(() => gasAndElectricityPage.switchToDefaultContent())
             .then(() => gasAndElectricityPage.switchToIframe())
             .then(() => gasAndElectricityPage.clickElement('likeRadioButton'))
             .then(() => gasAndElectricityPage.fillField('feedbackTextField', 'LIKE'))
             .then(() => gasAndElectricityPage.clickElement('submitButton'))
-            .then(() => gasAndElectricityPage.wait(3000))
             .then(() => expect(gasAndElectricityPage.isElementVisible('successForm')).toBeTruthy())
             .then(() => gasAndElectricityPage.switchToDefaultContent())
     })
