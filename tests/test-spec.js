@@ -17,7 +17,15 @@ const resoursesHubPage = new ResoursesHubPage()
 const savingsCalcPage = new SavingsCalcPage()
 
 describe('test', () => {
-    it('Fill car insurance form and click continue button', () => {
+    const EC = protractor.ExpectedConditions
+    const isInsureAddressDropdownVisible = EC.visibilityOf(
+        carInsuranceFormPage.data['insureAddressDropdown'],
+    )
+    const isCurrentLicenceMonthVisible = EC.visibilityOf(
+        carInsuranceFormPage.data['currentLicenceMonth'],
+    )
+
+    fit('Fill car insurance form and click continue button', () => {
         return homePage
             .goToPage()
             .then(() => homePage.clickElement(homePage.carInsuranceButton))
@@ -33,7 +41,7 @@ describe('test', () => {
             .then(() => carInsuranceFormPage.fillField('houseNumber', '23'))
             .then(() => carInsuranceFormPage.fillField('postCode', 'CH5 3UZ'))
             .then(() => carInsuranceFormPage.clickElement('findAddressButton'))
-            .then(() => carInsuranceFormPage.wait(1000))
+            .then(() => browser.wait(isInsureAddressDropdownVisible, 5000))
             .then(() =>
                 carInsuranceFormPage.selectDropdownValueByPartialText(
                     'insureAddressDropdown',
@@ -46,13 +54,13 @@ describe('test', () => {
             .then(() => carInsuranceFormPage.clickElement('kindOfDrivenLicense'))
             .then(() => carInsuranceFormPage.clickElement('restrictionLast'))
             .then(() => carInsuranceFormPage.selectDropdownValueByText('currentLicenceYear', '1'))
-            .then(() => carInsuranceFormPage.wait(1000))
+            .then(() => browser.wait(isCurrentLicenceMonthVisible, 5000))
             .then(() => carInsuranceFormPage.selectDropdownValueByText('currentLicenceMonth', '5'))
-            .then(() => carInsuranceFormPage.selectRadioButton('anyMedicalConditionsNo'))
-            .then(() => carInsuranceFormPage.selectRadioButton('anyOtherCarsNo'))
-            .then(() => carInsuranceFormPage.selectRadioButton('hasOffencesNo'))
-            .then(() => carInsuranceFormPage.selectRadioButton('anyConvictionsNo'))
-            .then(() => carInsuranceFormPage.selectRadioButton('hasInsuranceEverBeenDeclinedYes'))
+            .then(() => carInsuranceFormPage.clickElement('anyMedicalConditionsNo'))
+            .then(() => carInsuranceFormPage.clickElement('anyOtherCarsNo'))
+            .then(() => carInsuranceFormPage.clickElement('hasOffencesNo'))
+            .then(() => carInsuranceFormPage.clickElement('anyConvictionsNo'))
+            .then(() => carInsuranceFormPage.clickElement('hasInsuranceEverBeenDeclinedYes'))
             .then(() =>
                 carInsuranceFormPage.selectDropdownValueByText('yearsOfNoClaimsDiscount', '1'),
             )
@@ -62,9 +70,8 @@ describe('test', () => {
                     'Today',
                 ),
             )
-            .then(() => carInsuranceFormPage.wait(1000))
             .then(() => carInsuranceFormPage.clickElement('continueButton'))
-            .then(() => carInsuranceFormPage.wait(2000))
+            .then(() => browser.wait(EC.urlContains('aboutthecar'), 5000))
             .then(() => expect(browser.getCurrentUrl()).toContain('aboutthecar'))
     })
 

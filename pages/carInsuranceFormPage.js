@@ -28,12 +28,14 @@ class CarInsuranceFormPage extends Page {
                 By.className('btn btn-primary btn-continue btn-continue--alone'),
             ),
             anyMedicalConditionsNo: element(
-                By.id('policyHolder.hasMedicalConditionsAffectingDrivingfalse'),
+                By.css('[for = "policyHolder.hasMedicalConditionsAffectingDrivingfalse"]'),
             ),
-            anyOtherCarsNo: element(By.id('policyHolder.drivesAnyOtherCarsfalse')),
-            anyConvictionsNo: element(By.id('policyHolder.hasNonMotoringConvictionsfalse')),
+            anyOtherCarsNo: element(By.css('[for = "policyHolder.drivesAnyOtherCarsfalse"]')),
+            anyConvictionsNo: element(
+                By.css('[for = "policyHolder.hasNonMotoringConvictionsfalse"]'),
+            ),
             hasInsuranceEverBeenDeclinedYes: element(
-                By.id('policyHolder.hasInsuranceEverBeenDeclinedtrue'),
+                By.css('[for = "policyHolder.hasInsuranceEverBeenDeclinedtrue"]'),
             ),
             yearsOfNoClaimsDiscount: element(
                 By.css('.policyHolder_numberOfYearsNoClaims .nativedropdown-wrapper__native'),
