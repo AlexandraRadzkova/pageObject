@@ -59,7 +59,7 @@ describe('test', () => {
             .then(() =>
                 carInsuranceFormPage.selectDropdownValueByPartialText(
                     'startInsuranceDate',
-                    'Sunday 29th July',
+                    'Today',
                 ),
             )
             .then(() => carInsuranceFormPage.wait(1000))

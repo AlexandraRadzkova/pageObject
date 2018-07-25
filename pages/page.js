@@ -53,8 +53,8 @@ class Page {
         return this.data[dropdown].element(by.xpath('option[.="' + text + '"]')).click()
     }
 
-    selectDropdownValueByPartialText(dropdown, value) {
-        return this.data[dropdown].element(by.cssContainingText('option', value)).click()
+    selectDropdownValueByPartialText(dropdown, partialText) {
+        return this.data[dropdown].element(by.cssContainingText('option', partialText)).click()
     }
 
     wait(timeout) {
