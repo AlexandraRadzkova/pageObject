@@ -17,7 +17,7 @@ const resoursesHubPage = new ResoursesHubPage()
 const savingsCalcPage = new SavingsCalcPage()
 
 describe('test', () => {
-    fit('Fill car insurance form and click continue button', () => {
+    it('Fill car insurance form and click continue button', () => {
         return homePage
             .goToPage()
             .then(() => homePage.clickElement(homePage.carInsuranceButton))
