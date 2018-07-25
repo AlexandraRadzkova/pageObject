@@ -43,8 +43,8 @@ describe('test', () => {
             .then(() => carInsuranceFormPage.fillField('dateField', '29'))
             .then(() => carInsuranceFormPage.fillField('monthField', '05'))
             .then(() => carInsuranceFormPage.fillField('yearField', '1998'))
-            .then(() => carInsuranceFormPage.clickElement('kindOfDrivenLicense'))
-            .then(() => carInsuranceFormPage.clickElement('restrictionLast'))
+            .then(() => carInsuranceFormPage.selectRadioButton('kindOfDrivenLicense'))
+            .then(() => carInsuranceFormPage.selectRadioButton('restrictionLast'))
             .then(() =>
                 carInsuranceFormPage.selectValueInCurrentDropdown('currentLicenceYear', '1'),
             )
@@ -72,7 +72,7 @@ describe('test', () => {
             .then(() => expect(browser.getCurrentUrl()).toContain('aboutthecar'))
     })
 
-    it('Calculate savings', () => {
+    xit('Calculate savings', () => {
         return homePage
             .goToPage()
             .then(() => homePage.clickElement('moneyMadeEasyLink'))
@@ -92,7 +92,7 @@ describe('test', () => {
             )
     })
 
-    it('Leave feedback on Gas and Electricity Page', () => {
+    xit('Leave feedback on Gas and Electricity Page', () => {
         return homePage
             .goToPage()
             .then(() => homePage.mouseMoveToElement('energy'))

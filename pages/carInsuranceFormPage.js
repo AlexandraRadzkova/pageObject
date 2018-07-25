@@ -16,14 +16,18 @@ class CarInsuranceFormPage extends Page {
             dateField: element(By.name('policyHolder.dateOfBirth.day')),
             monthField: element(By.name('policyHolder.dateOfBirth.month')),
             yearField: element(By.name('policyHolder.dateOfBirth.year')),
-            kindOfDrivenLicense: element(By.xpath('//label[text()="Medically restricted"]')),
+            kindOfDrivenLicense: element(
+                By.css('[id = "policyHolder.licenceTypeIdmedical_restricted"]'),
+            ),
             currentLicenceYear: element(
                 By.css('.year-month-selector__year-select .nativedropdown-wrapper__native'),
             ),
             currentLicenceMonth: element(
                 By.css('.year-month-selector__month-select .nativedropdown-wrapper__native'),
             ),
-            restrictionLast: element(By.xpath('//label[text()="Less than 3 years"]')),
+            restrictionLast: element(
+                By.css('[id = "policyHolder.restrictionOnLicenseless-than-3"]'),
+            ),
             continueButton: element(
                 By.className('btn btn-primary btn-continue btn-continue--alone'),
             ),
