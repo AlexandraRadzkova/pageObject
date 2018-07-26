@@ -60,5 +60,9 @@ class Page {
     wait(timeout) {
         return browser.wait(() => false, timeout).catch(() => {})
     }
+
+    waitForEC(EC, timeout) {
+        return browser.wait(EC, timeout).catch(() => {})
+    }
 }
 module.exports = Page
