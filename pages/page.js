@@ -11,7 +11,10 @@ class Page {
     }
 
     selectElementByText(listOfElements, text) {
-        return this.data[listOfElements]
+        const elements =
+            typeof listOfElements === 'string' ? this.data[listOfElements] : listOfElements
+
+        return elements
             .filter(el => {
                 return el.getText().then(elemText => {
                     console.log(elemText)

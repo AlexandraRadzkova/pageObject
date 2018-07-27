@@ -30,7 +30,7 @@ describe('test', () => {
     it('Fill car insurance form and click continue button', () => {
         return homePage
             .goToPage()
-            .then(() => homePage.clickElement(homePage.carInsuranceButton))
+            .then(() => homePage.clickElement('carInsuranceButton'))
             .then(() => {
                 return browser.getCurrentUrl().then(currentUrl => {
                     if (!currentUrl.includes('questionset')) {
@@ -76,14 +76,14 @@ describe('test', () => {
             .then(() => expect(browser.getCurrentUrl()).toContain('aboutthecar'))
     })
 
-    it('Calculate savings', () => {
+    fit('Calculate savings', () => {
         return homePage
             .goToPage()
             .then(() => homePage.clickElement('moneyMadeEasyLink'))
             .then(() => expect(moneyMadeEasyPage.getUrl()).toContain('money-made-easy'))
-            .then(() => moneyMadeEasyPage.clickElement(moneyMadeEasyPage.toolsAndCalc))
+            .then(() => moneyMadeEasyPage.clickElement('toolsAndCalc'))
             .then(() => expect(resoursesHubPage.getUrl()).toContain('resources'))
-            .then(() => resoursesHubPage.clickElement(resoursesHubPage.savingsCalc))
+            .then(() => resoursesHubPage.clickElement('savingsCalc'))
             .then(() => expect(savingsCalcPage.getUrl()).toContain('calculator'))
             .then(() => savingsCalcPage.selectRadioButtonBySpace('saveEachMonthRadioButton'))
             .then(() => savingsCalcPage.fillField('amountField', 500))
