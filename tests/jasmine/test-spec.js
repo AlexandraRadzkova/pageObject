@@ -76,7 +76,7 @@ describe('test', () => {
             .then(() => expect(browser.getCurrentUrl()).toContain('aboutthecar'))
     })
 
-    fit('Calculate savings', () => {
+    it('Calculate savings', () => {
         return homePage
             .goToPage()
             .then(() => homePage.clickElement('moneyMadeEasyLink'))

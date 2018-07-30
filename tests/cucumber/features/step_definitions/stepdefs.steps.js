@@ -10,68 +10,80 @@ const AboutTheCarPage = require('../../../../pages/aboutTheCarPage')
 
 const assert = require('assert')
 const { Given, When, Then } = require('cucumber')
+const expect = require('chai').expect
 const EC = protractor.ExpectedConditions
 
 const pages = {
-	home: new HomePage(),
-	carInsurance: new CarInsurancePage(),
-	carInsuranceForm: new CarInsuranceFormPage(),
-	solarPower: new SolarPowerPage(),
-	gasAndElectricity: new GasAndElectricityPage(),
-	moneyMadeEasy: new MoneyMadeEasyPage(),
-	resoursesHub: new ResoursesHubPage(),
-	savingsCalc: new SavingsCalcPage(),
-	aboutTheCar: new AboutTheCarPage(),
+    home: new HomePage(),
+    carInsurance: new CarInsurancePage(),
+    carInsuranceForm: new CarInsuranceFormPage(),
+    solarPower: new SolarPowerPage(),
+    gasAndElectricity: new GasAndElectricityPage(),
+    moneyMadeEasy: new MoneyMadeEasyPage(),
+    resoursesHub: new ResoursesHubPage(),
+    savingsCalc: new SavingsCalcPage(),
+    aboutTheCar: new AboutTheCarPage(),
 }
 
 Given(/^(\S*) page$/, { timeout: 15000 }, function(pageName) {
-	return pages[pageName].goToPage()
+    return pages[pageName].goToPage()
 })
 
 When(/^I click (\S*)$/, { timeout: 15000 }, function(elementName) {
-	return getCurrentPage().then(page => page.clickElement(elementName))
+    return getCurrentPage().then(page => page.clickElement(elementName))
 })
 
 When(/^I fill (\S*) field with \'(.*)\'$/, function(fieldName, value) {
-	return getCurrentPage().then(page => page.fillField(fieldName, value))
+    return getCurrentPage().then(page => page.fillField(fieldName, value))
 })
 
 When(/^I move mouse to (\S*)$/, function(elementName) {
-	return getCurrentPage().then(page => page.mouseMoveToElement(elementName))
+    return getCurrentPage().then(page => page.mouseMoveToElement(elementName))
 })
 
 When(/^I select \'(.*)\' from (\S*) dropdown$/, function(text, dropdown) {
-	return getCurrentPage().then(page => page.selectDropdownValueByText(dropdown, text))
+    return getCurrentPage().then(page => page.selectDropdownValueByText(dropdown, text))
 })
 
 When(/^I select value from (\S*) dropdown which includes \'(.*)\'$/, function(dropdown, partText) {
-	return getCurrentPage().then(page => page.selectDropdownValueByPartialText(dropdown, partText))
+    return getCurrentPage().then(page => page.selectDropdownValueByPartialText(dropdown, partText))
 })
 
 When(/^I wait for (\S*) to be visible$/, function(elementName) {
-	return getCurrentPage().then(page => {
-		const element = page.data[elementName]
-		return page.waitForEC(EC.visibilityOf(element), 5000)
-	})
+    return getCurrentPage().then(page => {
+        const element = page.data[elementName]
+        return page.waitForEC(EC.visibilityOf(element), 5000)
+    })
 })
 
+When(/^I select (\S*) radio button$/, function(elementName) {
+    return getCurrentPage().then(page => page.selectRadioButtonBySpace(elementName))
+})
+
+// Then(/^I should see (\S*)$/, async function(elementName) {
+//     return getCurrentPage().then(page => {
+//         const state = page.isElementVisible(elementName)
+//         expect(state).to.equal(true)
+//     })
+// })
+
 Then(/^I should see (\S*) page$/, async function(pageName) {
-	return getCurrentPage().then(page => {
-		assert.equal(page.url, pages[pageName].url)
-	})
+    return getCurrentPage().then(page => {
+        assert.equal(page.url, pages[pageName].url)
+    })
 })
 
 async function getCurrentPage() {
-	const rawCurrentUrl = await browser.getCurrentUrl()
-	const currentUrl =
-		lastSymbol(rawCurrentUrl) === '/' ? removeLastSymbol(rawCurrentUrl) : rawCurrentUrl
-	return Object.values(pages).find(page => page.url === currentUrl)
+    const rawCurrentUrl = await browser.getCurrentUrl()
+    const currentUrl =
+        lastSymbol(rawCurrentUrl) === '/' ? removeLastSymbol(rawCurrentUrl) : rawCurrentUrl
+    return Object.values(pages).find(page => page.url === currentUrl)
 }
 
 function lastSymbol(string) {
-	return string[string.length - 1]
+    return string[string.length - 1]
 }
 
 function removeLastSymbol(string) {
-	return string.slice(0, string.length - 1)
+    return string.slice(0, string.length - 1)
 }

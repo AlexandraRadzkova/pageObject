@@ -2,7 +2,7 @@ const Page = require('./page')
 class GasAndElectricityPage extends Page {
     constructor() {
         super()
-        this.url = 'https://www.moneysupermarket.com/store/gas-and-electricity/enquiry/'
+        this.url = 'https://www.moneysupermarket.com/store/gas-and-electricity/enquiry'
         this.data = {
             feedbackButton: element(By.className('usabilla_live_button_container')),
             iframeRoot: element(By.css("[title = 'Usabilla Feedback Form Frame']")),
