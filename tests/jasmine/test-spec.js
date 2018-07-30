@@ -1,4 +1,4 @@
-const { pages, getCurrentPage, lastSymbol, removeLastSymbol } = require('../helpers/helpers')
+const { pages } = require('../helpers/helpers')
 
 describe('test', () => {
     const EC = protractor.ExpectedConditions
