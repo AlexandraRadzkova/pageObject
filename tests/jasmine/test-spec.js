@@ -1,4 +1,4 @@
-const { pages } = require('../helpers/helpers')
+const { pages, getCurrentPage } = require('../helpers/helpers')
 
 describe('test', () => {
     const EC = protractor.ExpectedConditions
@@ -52,7 +52,8 @@ describe('test', () => {
                 ),
             )
             .then(() => pages.carInsuranceForm.clickElement('continueButton'))
-            .then(() => expect(pages.aboutTheCar.getUrl()).toContain('aboutthecar'))
+            .then(() => getCurrentPage())
+            .then(page => expect(page.url).toEqual(pages.aboutTheCar.url))
     })
 
     it('Calculate savings', () => {
