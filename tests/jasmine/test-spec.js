@@ -18,9 +18,6 @@ const savingsCalcPage = new SavingsCalcPage()
 
 describe('test', () => {
     const EC = protractor.ExpectedConditions
-    const isInsureAddressDropdownVisible = EC.visibilityOf(
-        carInsuranceFormPage.data['insureAddressDropdown'],
-    )
     const isCurrentLicenceMonthVisible = EC.visibilityOf(
         carInsuranceFormPage.data['currentLicenceMonth'],
     )
@@ -40,14 +37,10 @@ describe('test', () => {
                 })
             })
             .then(() => carInsuranceFormPage.fillField('carRegistrationYear', '1753'))
-            .then(() => carInsuranceFormPage.fillField('houseNumber', '23'))
-            .then(() => carInsuranceFormPage.fillField('postCode', 'CH5 3UZ'))
-            .then(() => carInsuranceFormPage.clickElement('findAddressButton'))
-            .then(() => carInsuranceFormPage.waitForEC(isInsureAddressDropdownVisible, 5000))
             .then(() =>
-                carInsuranceFormPage.selectDropdownValueByPartialText(
-                    'insureAddressDropdown',
-                    'Insuresupermarket.com',
+                carInsuranceFormPage.fillField(
+                    'address',
+                    'Insure, 384, Clapham Road, London, SW99AR',
                 ),
             )
             .then(() => carInsuranceFormPage.fillField('dateField', '29'))

@@ -12,4 +12,4 @@ Feature: If calculate savings page works well
         And I fill grossInterestRateField field with '90'
         And I click calcMySavingsButton
         And I wait for saveEachMonthResults to be visible
-# Then I should see saveEachMonthResults
+        Then I should see saveEachMonthResults

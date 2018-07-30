@@ -5,12 +5,9 @@ Feature: If continue button on the car insurance form page works well
     Given home page
     When I click carInsuranceButton
     And I click getNewQuoteButton
+    And I should see carInsuranceForm page
     And I fill carRegistrationYear field with '1753'
-    And I fill houseNumber field with '23'
-    And I fill postCode field with 'CH5 3UZ'
-    And I click findAddressButton
-    And I wait for insureAddressDropdown to be visible
-    And I select value from insureAddressDropdown dropdown which includes 'Insuresupermarket.com'
+    And I fill address field with 'Insure, 384, Clapham Road, London, SW99AR'
     And I fill dateField field with '29'
     And I fill monthField field with '05'
     And I fill yearField field with '1998'

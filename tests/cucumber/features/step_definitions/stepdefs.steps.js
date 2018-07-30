@@ -60,12 +60,19 @@ When(/^I select (\S*) radio button$/, function(elementName) {
     return getCurrentPage().then(page => page.selectRadioButtonBySpace(elementName))
 })
 
-// Then(/^I should see (\S*)$/, async function(elementName) {
-//     return getCurrentPage().then(page => {
-//         const state = page.isElementVisible(elementName)
-//         expect(state).to.equal(true)
-//     })
-// })
+When(/^I switch to iframe$/, function() {
+    return getCurrentPage().then(page => page.switchToIframe())
+})
+
+When(/^I switch to default content$/, function() {
+    return getCurrentPage().then(page => page.switchToDefaultContent())
+})
+
+Then(/^I should see (\S*)$/, async function(elementName) {
+    const page = await getCurrentPage()
+    const state = await page.isElementVisible(elementName)
+    expect(state).to.equal(true)
+})
 
 Then(/^I should see (\S*) page$/, async function(pageName) {
     return getCurrentPage().then(page => {

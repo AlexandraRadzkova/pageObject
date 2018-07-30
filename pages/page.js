@@ -34,7 +34,7 @@ class Page {
     }
 
     fillField(locate, value) {
-        return this.data[locate].sendKeys(value)
+        return this.data[locate].sendKeys(value).sendKeys(protractor.Key.ENTER)
     }
 
     mouseMoveToElement(element) {
