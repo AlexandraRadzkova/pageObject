@@ -1,4 +1,5 @@
 const Page = require('./page')
+
 class HomePage extends Page {
     constructor() {
         super()
@@ -22,4 +23,5 @@ class HomePage extends Page {
         }
     }
 }
+
 module.exports = HomePage

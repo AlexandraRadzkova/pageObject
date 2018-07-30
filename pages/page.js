@@ -68,4 +68,5 @@ class Page {
         return browser.wait(EC, timeout).catch(() => {})
     }
 }
+
 module.exports = Page

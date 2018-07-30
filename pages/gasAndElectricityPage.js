@@ -1,4 +1,5 @@
 const Page = require('./page')
+
 class GasAndElectricityPage extends Page {
     constructor() {
         super()
@@ -31,4 +32,5 @@ class GasAndElectricityPage extends Page {
             .then(() => browser.waitForAngularEnabled(true))
     }
 }
+
 module.exports = GasAndElectricityPage

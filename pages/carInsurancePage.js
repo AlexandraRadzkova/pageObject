@@ -1,4 +1,5 @@
 const Page = require('./page')
+
 class CarInsurancePage extends Page {
     constructor() {
         super()
@@ -12,4 +13,5 @@ class CarInsurancePage extends Page {
         }
     }
 }
+
 module.exports = CarInsurancePage

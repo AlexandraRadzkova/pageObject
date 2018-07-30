@@ -1,4 +1,5 @@
 const Page = require('./page')
+
 class ResoursesHubPage extends Page {
     constructor() {
         super()
@@ -9,4 +10,5 @@ class ResoursesHubPage extends Page {
         }
     }
 }
+
 module.exports = ResoursesHubPage
