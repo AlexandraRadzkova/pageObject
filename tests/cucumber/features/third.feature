@@ -14,7 +14,7 @@ Feature: If feedback can be sent from the gas and electricity page
         And I switch to default content
         And I switch to iframe
         And I click likeRadioButton
-        And I fill feedbackTextField field with 'LIKE'
+        And I fill feedbackText field with 'LIKE'
         And I click submitButton
         Then I should see successForm
         And I switch to default content

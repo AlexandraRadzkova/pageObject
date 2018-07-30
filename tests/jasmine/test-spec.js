@@ -89,7 +89,7 @@ describe('test', () => {
             .then(() => pages.gasAndElectricity.switchToDefaultContent())
             .then(() => pages.gasAndElectricity.switchToIframe())
             .then(() => pages.gasAndElectricity.clickElement('likeRadioButton'))
-            .then(() => pages.gasAndElectricity.fillField('feedbackTextField', 'LIKE'))
+            .then(() => pages.gasAndElectricity.fillField('feedbackText', 'LIKE'))
             .then(() => pages.gasAndElectricity.clickElement('submitButton'))
             .then(() =>
                 expect(pages.gasAndElectricity.isElementVisible('successForm')).toBeTruthy(),

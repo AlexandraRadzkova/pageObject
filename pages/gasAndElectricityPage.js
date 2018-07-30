@@ -11,7 +11,7 @@ class GasAndElectricityPage extends Page {
                 By.xpath("//div[contains(@class, 'choice choice_specific')]"),
             ),
             likeRadioButton: element(By.css('.rating_4')),
-            feedbackTextField: element(By.name('feedback')),
+            feedbackText: element(By.name('feedback')),
             submitButton: element(By.className('submit')),
             successForm: element(By.css('.usabilla_ui_holder')),
         }
