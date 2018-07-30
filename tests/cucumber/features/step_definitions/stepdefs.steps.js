@@ -1,4 +1,4 @@
-const { pages, getCurrentPage, lastSymbol, removeLastSymbol } = require('../../../helpers/helpers')
+const { pages, getCurrentPage } = require('../../../helpers/helpers')
 const assert = require('assert')
 const { Given, When, Then } = require('cucumber')
 const expect = require('chai').expect
