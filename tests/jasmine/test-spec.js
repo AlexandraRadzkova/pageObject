@@ -65,9 +65,9 @@ describe('test', () => {
             .then(() => pages.resoursesHub.clickElement('savingsCalc'))
             .then(() => expect(pages.savingsCalc.getUrl()).toContain('calculator'))
             .then(() => pages.savingsCalc.selectRadioButtonBySpace('saveEachMonthRadioButton'))
-            .then(() => pages.savingsCalc.fillField('amountField', 500))
-            .then(() => pages.savingsCalc.fillField('existingSavingsField', 300))
-            .then(() => pages.savingsCalc.fillField('grossInterestRateField', 90))
+            .then(() => pages.savingsCalc.fillField('amount', 500))
+            .then(() => pages.savingsCalc.fillField('existingSavings', 300))
+            .then(() => pages.savingsCalc.fillField('grossInterestRate', 90))
             .then(() => pages.savingsCalc.clickElement('calcMySavingsButton'))
             .then(() =>
                 expect(pages.savingsCalc.isElementVisible('saveEachMonthResults')).toBeTruthy(),

@@ -7,9 +7,9 @@ Feature: If calculate savings page works well
         And I click toolsAndCalc
         And I click savingsCalc
         And I select saveEachMonthRadioButton radio button
-        And I fill amountField field with '500'
-        And I fill existingSavingsField field with '300'
-        And I fill grossInterestRateField field with '90'
+        And I fill amount field with '500'
+        And I fill existingSavings field with '300'
+        And I fill grossInterestRate field with '90'
         And I click calcMySavingsButton
         And I wait for saveEachMonthResults to be visible
         Then I should see saveEachMonthResults
