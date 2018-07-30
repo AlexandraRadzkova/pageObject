@@ -9,9 +9,9 @@ class CarInsuranceFormPage extends Page {
             carRegistrationYear: element(By.className('car-registration__input')),
             address: element(By.css('#propertyAddress')),
             findCarButton: element(By.className('btn btn-find')),
-            dateField: element(By.name('policyHolder.dateOfBirth.day')),
-            monthField: element(By.name('policyHolder.dateOfBirth.month')),
-            yearField: element(By.name('policyHolder.dateOfBirth.year')),
+            date: element(By.name('policyHolder.dateOfBirth.day')),
+            month: element(By.name('policyHolder.dateOfBirth.month')),
+            year: element(By.name('policyHolder.dateOfBirth.year')),
             kindOfDrivenLicense: element(By.xpath('//label[text() = "Medically restricted"]')),
             currentLicenceYear: element(
                 By.css('.year-month-selector__year-select .nativedropdown-wrapper__native'),

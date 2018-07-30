@@ -27,9 +27,9 @@ describe('test', () => {
                     'Insure, 384, Clapham Road, London, SW99AR',
                 ),
             )
-            .then(() => pages.carInsuranceForm.fillField('dateField', '29'))
-            .then(() => pages.carInsuranceForm.fillField('monthField', '05'))
-            .then(() => pages.carInsuranceForm.fillField('yearField', '1998'))
+            .then(() => pages.carInsuranceForm.fillField('date', '29'))
+            .then(() => pages.carInsuranceForm.fillField('month', '05'))
+            .then(() => pages.carInsuranceForm.fillField('year', '1998'))
             .then(() => pages.carInsuranceForm.clickElement('kindOfDrivenLicense'))
             .then(() => pages.carInsuranceForm.clickElement('restrictionLast'))
             .then(() => pages.carInsuranceForm.selectDropdownValueByText('currentLicenceYear', '1'))

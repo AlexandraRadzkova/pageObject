@@ -8,9 +8,9 @@ Feature: If continue button on the car insurance form page works well
     And I should see carInsuranceForm page
     And I fill carRegistrationYear field with '1753'
     And I fill address field with 'Insure, 384, Clapham Road, London, SW99AR'
-    And I fill dateField field with '29'
-    And I fill monthField field with '05'
-    And I fill yearField field with '1998'
+    And I fill date field with '29'
+    And I fill month field with '05'
+    And I fill year field with '1998'
     And I click kindOfDrivenLicense
     And I click restrictionLast
     And I select '1' from currentLicenceYear dropdown
