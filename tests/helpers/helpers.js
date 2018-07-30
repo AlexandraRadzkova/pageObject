@@ -1,12 +1,12 @@
-const HomePage = require('../../../../pages/homePage')
-const CarInsurancePage = require('../../../../pages/carInsurancePage')
-const CarInsuranceFormPage = require('../../../../pages/carInsuranceFormPage')
-const SolarPowerPage = require('../../../../pages/solarPowerPage')
-const GasAndElectricityPage = require('../../../../pages/gasAndElectricityPage')
-const MoneyMadeEasyPage = require('../../../../pages/moneyMadeEasyPage')
-const ResoursesHubPage = require('../../../../pages/resoursesHubPage')
-const SavingsCalcPage = require('../../../../pages/savingsCalcPage')
-const AboutTheCarPage = require('../../../../pages/aboutTheCarPage')
+const HomePage = require('../../pages/homePage')
+const CarInsurancePage = require('../../pages/carInsurancePage')
+const CarInsuranceFormPage = require('../../pages/carInsuranceFormPage')
+const SolarPowerPage = require('../../pages/solarPowerPage')
+const GasAndElectricityPage = require('../../pages/gasAndElectricityPage')
+const MoneyMadeEasyPage = require('../../pages/moneyMadeEasyPage')
+const ResoursesHubPage = require('../../pages/resoursesHubPage')
+const SavingsCalcPage = require('../../pages/savingsCalcPage')
+const AboutTheCarPage = require('../../pages/aboutTheCarPage')
 
 const pages = {
     home: new HomePage(),
