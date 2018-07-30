@@ -8,7 +8,7 @@ describe('test', () => {
     const isFeedbackButtonVisible = EC.visibilityOf(pages.gasAndElectricity.data['feedbackButton'])
     const isIframeVisible = EC.visibilityOf(pages.gasAndElectricity.data['iframeRoot'])
 
-    fit('Fill car insurance form and click continue button', () => {
+    it('Fill car insurance form and click continue button', () => {
         return pages.home
             .goToPage()
             .then(() => pages.home.clickElement('carInsuranceButton'))
