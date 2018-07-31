@@ -8,43 +8,53 @@ Given(/^(\S*) page$/, { timeout: 15000 }, function(pageName) {
     return pages[pageName].goToPage()
 })
 
-When(/^I click (\S*)$/, { timeout: 15000 }, function(elementName) {
-    return getCurrentPage().then(page => page.clickElement(elementName))
+When(/^I click (\S*)$/, { timeout: 15000 }, async function(elementName) {
+    const page = await getCurrentPage()
+    await page.clickElement(elementName)
 })
 
-When(/^I fill (\S*) field with \'(.*)\'$/, function(fieldName, value) {
-    return getCurrentPage().then(page => page.fillField(fieldName, value))
+When(/^I fill (\S*) field with \'(.*)\'$/, async function(fieldName, value) {
+    const page = await getCurrentPage()
+    await page.fillField(fieldName, value)
 })
 
-When(/^I move mouse to (\S*)$/, function(elementName) {
-    return getCurrentPage().then(page => page.mouseMoveToElement(elementName))
+When(/^I move mouse to (\S*)$/, async function(elementName) {
+    const page = await getCurrentPage()
+    await page.mouseMoveToElement(elementName)
 })
 
-When(/^I select \'(.*)\' from (\S*) dropdown$/, function(text, dropdown) {
-    return getCurrentPage().then(page => page.selectDropdownValueByText(dropdown, text))
+When(/^I select \'(.*)\' from (\S*) dropdown$/, async function(text, dropdown) {
+    const page = await getCurrentPage()
+    await page.selectDropdownValueByText(dropdown, text)
 })
 
-When(/^I select value from (\S*) dropdown which includes \'(.*)\'$/, function(dropdown, partText) {
-    return getCurrentPage().then(page => page.selectDropdownValueByPartialText(dropdown, partText))
+When(/^I select value from (\S*) dropdown which includes \'(.*)\'$/, async function(
+    dropdown,
+    partText,
+) {
+    const page = await getCurrentPage()
+    await page.selectDropdownValueByPartialText(dropdown, partText)
 })
 
-When(/^I wait for (\S*) to be visible$/, function(elementName) {
-    return getCurrentPage().then(page => {
-        const element = page.data[elementName]
-        return page.waitForEC(EC.visibilityOf(element), 5000)
-    })
+When(/^I wait for (\S*) to be visible$/, async function(elementName) {
+    const page = await getCurrentPage()
+    const element = page.data[elementName]
+    await page.waitForEC(EC.visibilityOf(element), 5000)
 })
 
-When(/^I select (\S*) radio button$/, function(elementName) {
-    return getCurrentPage().then(page => page.selectRadioButtonBySpace(elementName))
+When(/^I select (\S*) radio button$/, async function(elementName) {
+    const page = await getCurrentPage()
+    await page.selectRadioButtonBySpace(elementName)
 })
 
-When(/^I switch to iframe$/, function() {
-    return getCurrentPage().then(page => page.switchToIframe())
+When(/^I switch to iframe$/, async function() {
+    const page = await getCurrentPage()
+    await page.switchToIframe()
 })
 
-When(/^I switch to default content$/, function() {
-    return getCurrentPage().then(page => page.switchToDefaultContent())
+When(/^I switch to default content$/, async function() {
+    const page = await getCurrentPage()
+    await page.switchToDefaultContent()
 })
 
 Then(/^I should see (\S*)$/, async function(elementName) {
