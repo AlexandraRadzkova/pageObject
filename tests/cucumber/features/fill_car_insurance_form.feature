@@ -1,5 +1,6 @@
-Feature: If continue button on the car insurance form page works well
-    Check if continue button navigates user to associated page
+Feature: Fill car insurance form
+    Check if continue button on the car insurance form page
+    navigates user to associated page
 
     Scenario: Fill car insurance form and click continue button
         Given home page

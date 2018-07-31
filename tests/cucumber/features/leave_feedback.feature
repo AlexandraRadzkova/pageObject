@@ -1,4 +1,5 @@
-Feature: If feedback can be sent from the gas and electricity page
+Feature: Leave feedback
+    Check if feedback can be sent from the gas and electricity page
 
     Scenario: Leave feedback on Gas and Electricity Page
         Given home page

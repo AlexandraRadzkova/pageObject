@@ -1,5 +1,6 @@
-Feature: If calculate savings page works well
-    Check if savings calculates after clicking calculate my savings button
+Feature: Calculate savings
+    Check If calculate savings page works well
+    (savings calculates after clicking calculate my savings button)
 
     Scenario: Fill calculate my savings form and click calculate my savings button
         Given home page
