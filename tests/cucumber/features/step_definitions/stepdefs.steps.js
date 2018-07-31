@@ -54,7 +54,6 @@ Then(/^I should see (\S*)$/, async function(elementName) {
 })
 
 Then(/^I should see (\S*) page$/, async function(pageName) {
-    return getCurrentPage().then(page => {
-        assert.equal(page.url, pages[pageName].url)
-    })
+    const page = await getCurrentPage()
+    assert.equal(page.url, pages[pageName].url)
 })
