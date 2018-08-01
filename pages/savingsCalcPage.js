@@ -5,7 +5,7 @@ class SavingsCalcPage extends Page {
         super()
         this.url = 'https://www.moneysupermarket.com/savings/calculator'
         this.data = {
-            saveEachMonthRadioButton: element(By.css('#each-month')),
+            saveEachMonthRadioButton: element(By.css('[for = "each-month"]')),
             amount: element(By.css('#howmucheachmonth')),
             existingSavings: element(By.css('#existingsavingseachmonth')),
             grossInterestRate: element(By.css('#grossinterestrateeachmonth')),

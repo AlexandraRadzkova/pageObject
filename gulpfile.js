@@ -12,13 +12,13 @@ const paths = {
     helpers: 'tests/helpers/helpers.js',
     buildHelpersFolder: 'build/tests/helpers',
     pages: ['pages/*.js'],
-    buildFeatures: 'build/tests/cucumber/features',
+    buildFeaturesFolder: 'build/tests/cucumber/features',
     buildStepsFolder: 'build/tests/cucumber/features/step_definitions',
     buildPagesFolder: 'build/pages',
     buildStepsFile: 'build/tests/cucumber/features/step_definitions/total.steps.js',
     buildConfigFolder: 'build/tests/cucumber',
     buildConfigFile: 'build/tests/cucumber/conf.js',
-    // buildConfig: 'node_modules/.bin/protractor build/tests/cucumber/conf.js',
+    buildFeaturesFiles: 'build/tests/cucumber/features/*.feature',
 }
 
 gulp.task('clean', function() {
@@ -26,7 +26,7 @@ gulp.task('clean', function() {
 })
 
 gulp.task('cucumber-features', function() {
-    return gulp.src(paths.features).pipe(gulp.dest(paths.buildFeatures))
+    return gulp.src(paths.features).pipe(gulp.dest(paths.buildFeaturesFolder))
 })
 
 gulp.task('cucumber-steps', function() {
@@ -60,7 +60,7 @@ gulp.task('copy-pages', function() {
 
 gulp.task('cucumber-run', function() {
     return gulp
-        .src('build/tests/cucumber/features/*.feature')
+        .src(paths.buildFeaturesFiles)
         .pipe(
             protractor({
                 configFile: paths.buildConfigFile,
@@ -81,4 +81,5 @@ gulp.task(
         'copy-pages',
     ),
 )
+
 gulp.task('cucumber', gulp.series('cucumber-build', 'cucumber-run', 'clean'))

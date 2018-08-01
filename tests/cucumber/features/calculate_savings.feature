@@ -7,7 +7,7 @@ Feature: Calculate savings
         When I click moneyMadeEasyLink
         And I click toolsAndCalc
         And I click savingsCalc
-        And I select saveEachMonthRadioButton radio button
+        And I click saveEachMonthRadioButton
         And I fill amount field with '500'
         And I fill existingSavings field with '300'
         And I fill grossInterestRate field with '90'
