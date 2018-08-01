@@ -8,7 +8,11 @@ Feature: Fill car insurance form
         And I click getNewQuoteButton
         And I should see carInsuranceForm page
         And I fill carRegistrationYear field with '1753'
-        And I fill address field with 'Insure, 384, Clapham Road, London, SW99AR'
+        # And I fill address field with 'Insure, 384, Clapham Road, London, SW99AR'
+        And I fill houseNumber field with '23'
+        And I fill postCode field with 'CH5 3UZ'
+        And I click findAddressButton
+        And I select value from insureAddress dropdown which includes 'Insuresupermarket.com'
         And I fill date field with '29'
         And I fill month field with '05'
         And I fill year field with '1998'

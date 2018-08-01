@@ -4,12 +4,16 @@ class CarInsuranceFormPage extends Page {
     constructor() {
         super()
         this.url =
-            'https://www.moneysupermarket.com/shop/car-insurance/questionset/501-2/#?step=highimpactquestions'
+            'https://www.moneysupermarket.com/shop/car-insurance/questionset/#?step=highimpactquestions'
 
         this.data = {
             carRegistrationYear: element(By.className('car-registration__input')),
-            address: element(By.css('#propertyAddress')),
-            findCarButton: element(By.className('btn btn-find')),
+            // address: element(By.css('#propertyAddress')),
+            // findCarButton: element(By.className('btn btn-find')),
+            houseNumber: element(By.id('houseNumber')),
+            postCode: element(By.name('postcode')),
+            findAddressButton: element(By.className('btn btn-find')),
+            insureAddress: element(By.css('.address-select .nativedropdown-wrapper__native')),
             date: element(By.name('policyHolder.dateOfBirth.day')),
             month: element(By.name('policyHolder.dateOfBirth.month')),
             year: element(By.name('policyHolder.dateOfBirth.year')),

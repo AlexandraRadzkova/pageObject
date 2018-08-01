@@ -5,6 +5,9 @@ describe('test', () => {
     const isCurrentLicenceMonthVisible = EC.visibilityOf(
         pages.carInsuranceForm.data['currentLicenceMonth'],
     )
+    const isInsureAddressDropdownVisible = EC.visibilityOf(
+        pages.carInsuranceForm.data['insureAddress'],
+    )
     const isFeedbackButtonVisible = EC.visibilityOf(pages.gasAndElectricity.data['feedbackButton'])
     const isIframeVisible = EC.visibilityOf(pages.gasAndElectricity.data['iframeRoot'])
 
@@ -21,10 +24,14 @@ describe('test', () => {
                 })
             })
             .then(() => pages.carInsuranceForm.fillField('carRegistrationYear', '1753'))
+            .then(() => pages.carInsuranceForm.fillField('houseNumber', '23'))
+            .then(() => pages.carInsuranceForm.fillField('postCode', 'CH5 3UZ'))
+            .then(() => pages.carInsuranceForm.clickElement('findAddressButton'))
+            .then(() => pages.carInsuranceForm.waitForEC(isInsureAddressDropdownVisible, 5000))
             .then(() =>
-                pages.carInsuranceForm.fillField(
-                    'address',
-                    'Insure, 384, Clapham Road, London, SW99AR',
+                pages.carInsuranceForm.selectDropdownValueByPartialText(
+                    'insureAddress',
+                    'Insuresupermarket.com',
                 ),
             )
             .then(() => pages.carInsuranceForm.fillField('date', '29'))

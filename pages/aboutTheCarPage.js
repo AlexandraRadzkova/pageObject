@@ -4,7 +4,7 @@ class AboutTheCarPage extends Page {
     constructor() {
         super()
         this.url =
-            'https://www.moneysupermarket.com/shop/car-insurance/questionset/501-2/#?step=aboutthecar'
+            'https://www.moneysupermarket.com/shop/car-insurance/questionset/#?step=aboutthecar'
     }
 }
 

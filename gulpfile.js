@@ -3,15 +3,22 @@ const concat = require('gulp-concat')
 const del = require('del')
 const gutil = require('gulp-util')
 const uglify = require('gulp-uglify-es').default
+const protractor = require('gulp-protractor').protractor
 
 const paths = {
     features: ['tests/cucumber/features/*.feature'],
-    specs: ['tests/cucumber/features/step_definitions/*.steps.js'],
+    steps: ['tests/cucumber/features/step_definitions/*.steps.js'],
     config: 'tests/cucumber/conf.js',
     helpers: 'tests/helpers/helpers.js',
     buildHelpersFolder: 'build/tests/helpers',
     pages: ['pages/*.js'],
+    buildFeatures: 'build/tests/cucumber/features',
+    buildStepsFolder: 'build/tests/cucumber/features/step_definitions',
     buildPagesFolder: 'build/pages',
+    buildStepsFile: 'build/tests/cucumber/features/step_definitions/total.steps.js',
+    buildConfigFolder: 'build/tests/cucumber',
+    buildConfigFile: 'build/tests/cucumber/conf.js',
+    // buildConfig: 'node_modules/.bin/protractor build/tests/cucumber/conf.js',
 }
 
 gulp.task('clean', function() {
@@ -19,25 +26,22 @@ gulp.task('clean', function() {
 })
 
 gulp.task('cucumber-features', function() {
-    return gulp
-        .src(paths.features)
-        .pipe(concat('total.feature'))
-        .pipe(gulp.dest('build/tests/cucumber/features'))
+    return gulp.src(paths.features).pipe(gulp.dest(paths.buildFeatures))
 })
 
-gulp.task('cucumber-specs', function() {
+gulp.task('cucumber-steps', function() {
     return gulp
-        .src(paths.specs)
+        .src(paths.steps)
         .pipe(concat('total.steps.js'))
         .pipe(uglify())
         .on('error', function(err) {
             gutil.log(gutil.colors.red('[Error]'), err.toString())
         })
-        .pipe(gulp.dest('build/tests/cucumber/features/step_definitions'))
+        .pipe(gulp.dest(paths.buildStepsFolder))
 })
 
 gulp.task('cucumber-config', function() {
-    return gulp.src(paths.config).pipe(gulp.dest('build/tests/cucumber'))
+    return gulp.src(paths.config).pipe(gulp.dest(paths.buildConfigFolder))
 })
 
 gulp.task('copy-helpers', function() {
@@ -54,10 +58,27 @@ gulp.task('copy-pages', function() {
         .pipe(gulp.dest(paths.buildPagesFolder))
 })
 
-gulp.task('cucumber-build', [
-    'cucumber-features',
-    'cucumber-specs',
-    'cucumber-config',
-    'copy-helpers',
-    'copy-pages',
-])
+gulp.task('cucumber-run', function() {
+    return gulp
+        .src('build/tests/cucumber/features/*.feature')
+        .pipe(
+            protractor({
+                configFile: paths.buildConfigFile,
+            }),
+        )
+        .on('error', function(e) {
+            throw e
+        })
+})
+
+gulp.task(
+    'cucumber-build',
+    gulp.parallel(
+        'cucumber-features',
+        'cucumber-steps',
+        'cucumber-config',
+        'copy-helpers',
+        'copy-pages',
+    ),
+)
+gulp.task('cucumber', gulp.series('cucumber-build', 'cucumber-run', 'clean'))
