@@ -1,3 +1,4 @@
+const chromedriver = require('chromedriver')
 const gulp = require('gulp')
 const concat = require('gulp-concat')
 const del = require('del')
@@ -5,6 +6,9 @@ const gutil = require('gulp-util')
 const uglify = require('gulp-uglify-es').default
 const protractor = require('gulp-protractor').protractor
 const argv = require('yargs').argv
+const selenium = require('selenium-standalone')
+const SeleniumServer = require('selenium-webdriver/remote').SeleniumServer
+let server = {}
 
 const paths = {
     features: ['tests/cucumber/features/*.feature'],
@@ -73,6 +77,20 @@ gulp.task('cucumber-run', function() {
         })
 })
 
+gulp.task('serverStart', function() {
+    const pathToSeleniumJar = require('path').join(
+        __dirname,
+        'selenium-server',
+        'selenium-server-standalone-3.13.0.jar',
+    )
+    server = new SeleniumServer(pathToSeleniumJar, { port: 4444 })
+    return server.start()
+})
+
+gulp.task('serverStop', function() {
+    return server.stop()
+})
+
 gulp.task(
     'cucumber-build',
     gulp.parallel(
@@ -84,4 +102,7 @@ gulp.task(
     ),
 )
 
-gulp.task('cucumber', gulp.series('cucumber-build', 'cucumber-run', 'clean'))
+gulp.task(
+    'cucumber',
+    gulp.series('cucumber-build', 'serverStart', 'cucumber-run', 'serverStop', 'clean'),
+)
