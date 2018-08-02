@@ -4,6 +4,7 @@ const del = require('del')
 const gutil = require('gulp-util')
 const uglify = require('gulp-uglify-es').default
 const protractor = require('gulp-protractor').protractor
+const argv = require('yargs').argv
 
 const paths = {
     features: ['tests/cucumber/features/*.feature'],
@@ -64,6 +65,7 @@ gulp.task('cucumber-run', function() {
         .pipe(
             protractor({
                 configFile: paths.buildConfigFile,
+                args: ['--browser', argv.browser || 'chrome'],
             }),
         )
         .on('error', function(e) {
