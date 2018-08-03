@@ -1,4 +1,3 @@
-const chromedriver = require('chromedriver')
 const gulp = require('gulp')
 const concat = require('gulp-concat')
 const del = require('del')
@@ -8,6 +7,7 @@ const protractor = require('gulp-protractor').protractor
 const argv = require('yargs').argv
 const selenium = require('selenium-standalone')
 const SeleniumServer = require('selenium-webdriver/remote').SeleniumServer
+const shell = require('shelljs')
 let server = {}
 
 const paths = {
@@ -87,8 +87,12 @@ gulp.task('serverStart', function() {
     return server.start()
 })
 
-gulp.task('serverStop', function() {
-    return server.stop()
+gulp.task('serverStop', async function() {
+    await server.stop()
+})
+
+gulp.task('killChromedriver', async function() {
+    await shell.exec('taskkill /IM chromedriver.exe /F', { silent: true })
 })
 
 gulp.task(
