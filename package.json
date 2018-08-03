@@ -11,8 +11,6 @@
     "license": "ISC",
     "devDependencies": {
         "chai": "^4.1.2",
-        "child-process-promise": "^2.2.1",
-        "chromedriver": "^2.41.0",
         "cucumber": "^4.2.1",
         "del": "^3.0.0",
         "gulp": "github:gulpjs/gulp#4.0",
