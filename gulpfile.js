@@ -24,6 +24,8 @@ const paths = {
     buildConfigFolder: 'build/tests/cucumber',
     buildConfigFile: 'build/tests/cucumber/conf.js',
     buildFeaturesFiles: 'build/tests/cucumber/features/*.feature',
+    testSpecFile: 'tests/jasmine/test-spec.js',
+    jasmineConfig: 'tests/jasmine/conf.js',
 }
 
 gulp.task('clean', function() {
@@ -77,6 +79,20 @@ gulp.task('cucumber-run', function() {
         })
 })
 
+gulp.task('jasmine-run', function() {
+    return gulp
+        .src(paths.testSpecFile)
+        .pipe(
+            protractor({
+                configFile: paths.jasmineConfig,
+                args: ['--browser', argv.browser || 'chrome'],
+            }),
+        )
+        .on('error', function(e) {
+            throw e
+        })
+})
+
 gulp.task('serverStart', function() {
     const pathToSeleniumJar = require('path').join(
         __dirname,
@@ -109,3 +125,5 @@ gulp.task(
     'cucumber',
     gulp.series('cucumber-build', 'serverStart', 'cucumber-run', 'serverStop', 'clean'),
 )
+
+gulp.task('jasmine', gulp.series('serverStart', 'jasmine-run', 'serverStop', 'clean'))
