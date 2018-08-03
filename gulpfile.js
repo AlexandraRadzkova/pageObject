@@ -94,10 +94,6 @@ gulp.task('serverStop', async function() {
     await shell.exec('taskkill /IM chromedriver.exe /F', { silent: true })
 })
 
-// gulp.task('killChromedriver', async function() {
-//     await shell.exec('taskkill /IM chromedriver.exe /F', { silent: true })
-// })
-
 gulp.task(
     'cucumber-build',
     gulp.parallel(
