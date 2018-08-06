@@ -1,0 +1,800 @@
+[
+  {
+    "description": "    Check If calculate savings page works well\n    (savings calculates after clicking calculate my savings button)",
+    "keyword": "Feature",
+    "name": "Calculate savings",
+    "line": 1,
+    "id": "calculate-savings",
+    "tags": [],
+    "uri": "build\\tests\\cucumber\\features\\calculate_savings.feature",
+    "elements": [
+      {
+        "id": "calculate-savings;fill-calculate-my-savings-form-and-click-calculate-my-savings-button",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Fill calculate my savings form and click calculate my savings button",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "home page",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6521000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I click moneyMadeEasyLink",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2171000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I click toolsAndCalc",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4769000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I click savingsCalc",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2699000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I click saveEachMonthRadioButton",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 457000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I fill amount field with '500'",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 275000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I fill existingSavings field with '300'",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 194000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "I fill grossInterestRate field with '90'",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 181000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click calcMySavingsButton",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 163000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I wait for saveEachMonthResults to be visible",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 154000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "I should see saveEachMonthResults",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 76000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "description": "    Check if continue button on the car insurance form page\n    navigates user to associated page",
+    "keyword": "Feature",
+    "name": "Fill car insurance form",
+    "line": 1,
+    "id": "fill-car-insurance-form",
+    "tags": [],
+    "uri": "build\\tests\\cucumber\\features\\fill_car_insurance_form.feature",
+    "elements": [
+      {
+        "id": "fill-car-insurance-form;fill-car-insurance-form-and-click-continue-button",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Fill car insurance form and click continue button",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "home page",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1939000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I click carInsuranceButton",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2078000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I click getNewQuoteButton",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6378000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I should see carInsuranceForm page",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I fill carRegistrationYear field with '1753'",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 246000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I fill houseNumber field with '23'",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 894000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "I fill postCode field with 'CH5 3UZ'",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 744000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click findAddressButton",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 459000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I select value from insureAddress dropdown which includes 'Insuresupermarket.com'",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 380000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I fill date field with '29'",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 590000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I fill month field with '05'",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 242000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I fill year field with '1998'",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 591000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "I click kindOfDrivenLicense",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 194000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "I click restrictionLast",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 473000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "I select '1' from currentLicenceYear dropdown",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 465000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "I wait for currentLicenceMonth to be visible",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 487000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "I select '5' from currentLicenceMonth dropdown",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 148000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "I click anyMedicalConditionsNo",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 457000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "I click anyOtherCarsNo",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 456000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "I click hasOffencesNo",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 462000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "I click anyConvictionsNo",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 460000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 28,
+            "name": "I click hasInsuranceEverBeenDeclinedYes",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 455000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "I select '1' from yearsOfNoClaimsDiscount dropdown",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 484000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "I select value from startInsuranceDate dropdown which includes 'Today'",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 477000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "I click continueButton",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 471000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 32,
+            "name": "I should see aboutTheCar page",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2718000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "description": "    Check if feedback can be sent from the gas and electricity page",
+    "keyword": "Feature",
+    "name": "Leave feedback",
+    "line": 1,
+    "id": "leave-feedback",
+    "tags": [],
+    "uri": "build\\tests\\cucumber\\features\\leave_feedback.feature",
+    "elements": [
+      {
+        "id": "leave-feedback;leave-feedback-on-gas-and-electricity-page",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Leave feedback on Gas and Electricity Page",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "home page",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1964000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I move mouse to energy",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 253000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "I move mouse to solarPowerLink",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 157000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I click solarPowerLink",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1699000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I click switchAndSaveNowButton",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5353000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I wait for feedbackButton to be visible",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 227000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I click feedbackButton",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 123000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I wait for iframeRoot to be visible",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 878000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "I switch to iframe",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 292000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click generalFeedback",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 313000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I switch to default content",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 63000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I switch to iframe",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 97000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I click likeRadioButton",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 189000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I fill feedbackText field with 'LIKE'",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 221000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "I click submitButton",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 181000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "I should see successForm",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 68000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "I switch to default content",
+            "match": {
+              "location": "build\\tests\\cucumber\\features\\step_definitions\\total.steps.js:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 35000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

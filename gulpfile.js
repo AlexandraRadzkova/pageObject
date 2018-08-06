@@ -8,6 +8,8 @@ const argv = require('yargs').argv
 const selenium = require('selenium-standalone')
 const SeleniumServer = require('selenium-webdriver/remote').SeleniumServer
 const shell = require('shelljs')
+const reporter = require('cucumber-html-reporter')
+const fs = require('fs-extra')
 let server = {}
 
 const paths = {
@@ -121,9 +123,33 @@ gulp.task(
     ),
 )
 
+gulp.task('onPrepare', async function() {
+    await fs.emptyDir('tests/reports/json')
+    await fs.emptyDir('tests/reports/html')
+})
+
+gulp.task('reportHtml', async function() {
+    const options = {
+        theme: 'bootstrap',
+        jsonFile: 'tests/reports/json/cucumber_report.json',
+        output: 'tests/reports/html/cucumber_report.html',
+        reportSuiteAsScenarios: true,
+        launchReport: true,
+    }
+    await reporter.generate(options)
+})
+
 gulp.task(
     'cucumber',
-    gulp.series('cucumber-build', 'serverStart', 'cucumber-run', 'serverStop', 'clean'),
+    gulp.series(
+        'cucumber-build',
+        'serverStart',
+        'onPrepare',
+        'cucumber-run',
+        'reportHtml',
+        'serverStop',
+        'clean',
+    ),
 )
 
 gulp.task('jasmine', gulp.series('serverStart', 'jasmine-run', 'serverStop', 'clean'))

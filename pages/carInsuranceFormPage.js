@@ -3,11 +3,11 @@ const Page = require('./page')
 class CarInsuranceFormPage extends Page {
     constructor() {
         super()
-        // this.url =
-        //     'https://www.moneysupermarket.com/shop/car-insurance/questionset/#?step=highimpactquestions'
-
         this.url =
-            'https://www.moneysupermarket.com/shop/car-insurance/questionset/507-2/#?step=highimpactquestions'
+            'https://www.moneysupermarket.com/shop/car-insurance/questionset/#?step=highimpactquestions'
+
+        // this.url =
+        //     'https://www.moneysupermarket.com/shop/car-insurance/questionset/507-2/#?step=highimpactquestions'
 
         this.data = {
             carRegistrationYear: element(By.className('car-registration__input')),
