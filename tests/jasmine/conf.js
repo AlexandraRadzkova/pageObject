@@ -23,7 +23,7 @@ const reporter = new HtmlScreenshotReporter({
             platform: 'Windows 10 Enterprise x64',
         }
     },
-    preserveDirectory: true,
+    preserveDirectory: false,
     inlineImages: true,
 })
 
