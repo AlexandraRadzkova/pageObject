@@ -5,7 +5,7 @@ exports.config = {
     specs: ['features/*.feature'],
     cucumberOpts: {
         require: ['features/step_definitions/*.steps.js'],
-        format: 'json:tests/reports/json/cucumber_report.json',
+        format: 'json:tests/cucumberReport/json/cucumber_report.json',
     },
     onPrepare: function() {
         browser

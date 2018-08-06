@@ -124,17 +124,20 @@ gulp.task(
 )
 
 gulp.task('onPrepare', async function() {
-    await fs.emptyDir('tests/reports/json')
-    await fs.emptyDir('tests/reports/html')
+    await fs.emptyDir('tests/cucumberReport/json')
+    await fs.emptyDir('tests/cucumberReport/html')
 })
 
 gulp.task('reportHtml', async function() {
     const options = {
         theme: 'bootstrap',
-        jsonFile: 'tests/reports/json/cucumber_report.json',
-        output: 'tests/reports/html/cucumber_report.html',
+        jsonFile: 'tests/cucumberReport/json/cucumber_report.json',
+        output: 'tests/cucumberReport/html/cucumber_report.html',
         reportSuiteAsScenarios: true,
         launchReport: true,
+        metadata: {
+            Platform: 'Windows 10 Enterprise x64',
+        },
     }
     await reporter.generate(options)
 })
@@ -152,4 +155,4 @@ gulp.task(
     ),
 )
 
-gulp.task('jasmine', gulp.series('serverStart', 'jasmine-run', 'serverStop', 'clean'))
+gulp.task('jasmine', gulp.series('serverStart', 'jasmine-run', 'serverStop'))
