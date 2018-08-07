@@ -78,18 +78,15 @@ gulp.task('cucumber-run', function(done) {
         .on('end', () => done())
 })
 
-gulp.task('jasmine-run', function() {
-    return gulp
-        .src(paths.testSpecFile)
+gulp.task('jasmine-run', function(done) {
+    gulp.src(paths.testSpecFile)
         .pipe(
             protractor({
                 configFile: paths.jasmineConfig,
                 args: ['--browser', argv.browser || 'chrome'],
-            }),
+            }).on('error', () => done()),
         )
-        .on('error', function(e) {
-            throw e
-        })
+        .on('end', () => done())
 })
 
 gulp.task('serverStart', function() {
