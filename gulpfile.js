@@ -67,18 +67,15 @@ gulp.task('copy-pages', function() {
         .pipe(gulp.dest(paths.buildPagesFolder))
 })
 
-gulp.task('cucumber-run', function() {
-    return gulp
-        .src(paths.buildFeaturesFiles)
+gulp.task('cucumber-run', function(done) {
+    gulp.src(paths.buildFeaturesFiles)
         .pipe(
             protractor({
                 configFile: paths.buildConfigFile,
                 args: ['--browser', argv.browser || 'chrome'],
-            }),
+            }).on('error', () => done()),
         )
-        .on('error', function(e) {
-            throw e
-        })
+        .on('end', () => done())
 })
 
 gulp.task('jasmine-run', function() {
@@ -107,7 +104,8 @@ gulp.task('serverStart', function() {
 
 gulp.task('serverStop', async function() {
     if (argv.browser) {
-        await server.stop()
+        // await server.stop()
+        await shell.exec('taskkill /IM geckodriver.exe /F', { silent: true })
     }
     await shell.exec('taskkill /IM chromedriver.exe /F', { silent: true })
 })
@@ -138,6 +136,8 @@ gulp.task('reportHtml', async function() {
         metadata: {
             Platform: 'Windows 10 Enterprise x64',
         },
+        screenshotsDirectory: 'tests/cucumberReport/screenshots/',
+        storeScreenshots: true,
     }
     await reporter.generate(options)
 })

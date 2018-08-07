@@ -1,6 +1,7 @@
 const { pages, getCurrentPage } = require('../../../helpers/helpers')
 const assert = require('assert')
 const { Given, When, Then } = require('cucumber')
+const { After } = require('cucumber')
 const expect = require('chai').expect
 const EC = protractor.ExpectedConditions
 
@@ -66,4 +67,12 @@ Then(/^I should see (\S*)$/, async function(elementName) {
 Then(/^I should see (\S*) page$/, async function(pageName) {
     const page = await getCurrentPage()
     assert.equal(page.url, pages[pageName].url)
+})
+
+After(async function(scenario) {
+    if (scenario.result.status !== 'passed') {
+        return browser.takeScreenshot().then(png => {
+            return this.attach(png, 'image/png')
+        })
+    }
 })
