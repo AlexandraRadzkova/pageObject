@@ -51,7 +51,7 @@ exports.config = {
         await browser.driver
             .manage()
             .window()
-            .setSize(1920, 1080)
+            .maximize()
         await jasmine.getEnv().addReporter(reporter)
     },
 
