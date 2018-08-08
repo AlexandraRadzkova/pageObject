@@ -103,8 +103,7 @@ gulp.task('serverStop', async function() {
     if (argv.browser) {
         // await server.stop()
         await shell.exec('taskkill /IM geckodriver.exe /F', { silent: true })
-    }
-    await shell.exec('taskkill /IM chromedriver.exe /F', { silent: true })
+    } else await shell.exec('taskkill /IM chromedriver.exe /F', { silent: true })
 })
 
 gulp.task(
