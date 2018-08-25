@@ -2,3 +2,4 @@ node_modules
 build
 tests/cucumberReport
 tests/jasmineReport
+.idea
