@@ -5,7 +5,10 @@
     "main": "index.js",
     "scripts": {
         "test-jasmine": "node_modules/.bin/protractor tests/jasmine/conf.js",
-        "test-cucumber": "node_modules/.bin/protractor tests/cucumber/conf.js"
+        "test-cucumber": "node_modules/.bin/protractor tests/cucumber/conf.js",
+        "start-jasmine": "gulp jasmine",
+        "start-cucumber": "gulp cucumber"
+
     },
     "author": "Alexandra",
     "license": "ISC",
