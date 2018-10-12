@@ -87,6 +87,7 @@ describe('test', () => {
             .goToPage()
             .then(() => console.log('JASMINE BUILD STARTED !!!!'))
             .then(() => console.log('HELLO FROM JENKINS !!!!'))
+            .then(() => console.log('HELLO FROM JENKINS ONE MORE TIME!!!!'))
             .then(() => pages.home.mouseMoveToElement('energy'))
             .then(() => pages.home.mouseMoveToElement('solarPowerLink'))
             .then(() => pages.home.clickElement('solarPowerLink'))
