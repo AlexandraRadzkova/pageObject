@@ -29,7 +29,16 @@ const reporter = new HtmlScreenshotReporter({
 
 exports.config = {
     seleniumAddress: 'http://localhost:4444/wd/hub',
-    capabilities: { browserName: 'chrome' },
+    capabilities: {
+        browserName: 'chrome', 
+        chromeOptions: {
+            args: [
+                'headless',
+                'no-sandbox',
+                'disable-dev-shm-usage',
+            ]
+        }
+    },
     jasmineNodeOpts: {
         showColors: true,
         defaultTimeoutInterval: 120000,
