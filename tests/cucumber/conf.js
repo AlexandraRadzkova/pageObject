@@ -7,6 +7,16 @@ exports.config = {
         require: ['features/step_definitions/*.steps.js'],
         format: 'json:tests/cucumberReport/json/cucumber_report.json',
     },
+    capabilities: {
+        browserName: 'chrome', 
+        chromeOptions: {
+            args: [
+                'headless',
+                'no-sandbox',
+                'disable-dev-shm-usage',
+            ]
+        }
+    },
     onPrepare: function() {
         browser
             .manage()
